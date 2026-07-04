@@ -175,7 +175,7 @@ button.ghost:active { background: #f0f0ea; }
 
   <!-- 찬조 -->
   <div class="section">
-    <div class="sec-label">찬조 <span style="font-weight:400;color:#bbb;font-size:10px;">총액에서 먼저 차감</span></div>
+    <div class="sec-label">찬조 <span style="font-weight:400;color:#bbb;font-size:10px;">총액에서 먼저 차감 (내가 더 낼게 개념)</span></div>
     <div class="two-col" id="sponsor-grid">
       <div class="empty" style="grid-column:1/-1;padding:10px;">인원을 먼저 추가해 주세요.</div>
     </div>
@@ -427,7 +427,7 @@ function calculate(){
   }).join(' ');
 
   const balance={};
-  people.forEach(p=>{ balance[p.id]=(paidMap[p.id]||0)+(sponsorMap[p.id]||0)-shouldPay[p.id]; });
+    people.forEach(p=>{ balance[p.id]=(paidMap[p.id]||0)-shouldPay[p.id]; });
 
   const balanceCards = people.map((p,i)=>{
     const c=gc(i); const b=balance[p.id];
@@ -490,9 +490,10 @@ function calculate(){
   shareBtn.style.display='flex';
   const totalEl = document.getElementById('total-summary');
 if(totalEl) {
-  const totalPaid = people.reduce((s,p)=>s+(paidMap[p.id]||0)+(sponsorMap[p.id]||0), 0);
-  const remaining = grandTotal - totalPaid;
-  totalEl.textContent = `— 총 ${grandTotal.toLocaleString()}원 / 납부 ${totalPaid.toLocaleString()}원 / 남은 ${remaining.toLocaleString()}원`;
+const totalSponsor = people.reduce((s,p)=>s+(sponsorMap[p.id]||0), 0);
+const totalPaid = people.reduce((s,p)=>s+(paidMap[p.id]||0), 0);
+const remaining = grandTotal - totalSponsor - totalPaid;
+  totalEl.textContent = `— 총 ${grandTotal.toLocaleString()}원 / 찬조 ${totalSponsor.toLocaleString()}원 / 납부 ${totalPaid.toLocaleString()}원 / 남은 ${remaining.toLocaleString()}원`;
 }
   saveData();
 }
