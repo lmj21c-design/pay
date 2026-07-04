@@ -490,7 +490,7 @@ function calculate(){
   shareBtn.style.display='flex';
   const totalEl = document.getElementById('total-summary');
 if(totalEl) {
-  const totalPaid = people.reduce((s,p)=>s+(paidMap[p.id]||0), 0);
+  const totalPaid = people.reduce((s,p)=>s+(paidMap[p.id]||0)+(sponsorMap[p.id]||0), 0);
   const remaining = grandTotal - totalPaid;
   totalEl.textContent = `— 총 ${grandTotal.toLocaleString()}원 / 납부 ${totalPaid.toLocaleString()}원 / 남은 ${remaining.toLocaleString()}원`;
 }
