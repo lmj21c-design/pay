@@ -183,7 +183,7 @@ button.ghost:active { background: #f0f0ea; }
 
   <!-- 실납부 -->
   <div class="section">
-    <div class="sec-label">실제 납부 금액</div>
+    <div class="sec-label">실제 납부 금액 <span id="total-summary" style="font-weight:400;color:#aaa;font-size:10px;"></span></div>
     <div class="two-col" id="paid-grid">
       <div class="empty" style="grid-column:1/-1;padding:10px;">인원을 먼저 추가해 주세요.</div>
     </div>
@@ -206,9 +206,13 @@ button.ghost:active { background: #f0f0ea; }
     <button class="share-btn" id="share-btn" onclick="shareResult()" style="display:none;">
       📷 카카오톡 공유용 이미지 저장
     </button>
-  </div>
+    <button onclick="resetAll()" style="width:100%;padding:11px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:0.5px solid #e0e0d8;background:#fff;color:#e24b4a;margin-top:8px;">
+  🗑 전체 초기화
+</button>
 
+  </div>
 </div>
+
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lb-close">✕</button>
@@ -365,12 +369,12 @@ function renderRounds(){
   }).join('') : '<div class="empty" style="grid-column:1/-1;padding:10px;">인원을 먼저 추가해 주세요.</div>';
 
   document.getElementById('paid-grid').innerHTML = people.map((p,i)=>{
-    const c=gc(i);
-    return `<div class="paid-item">
-      <div class="paid-name"><div class="avatar" style="background:${c.bg};color:${c.text};width:18px;height:18px;font-size:9px;">${ini(p.name)}</div>${p.name}</div>
-      <input type="number" placeholder="0원" value="${paidMap[p.id]||''}" min="0" step="1000" oninput="updatePaid(${p.id},this.value)" inputmode="numeric" />
-    </div>`;
-  }).join('');
+  const c=gc(i);
+  return `<div class="paid-item">
+    <div class="paid-name"><div class="avatar" style="background:${c.bg};color:${c.text};width:18px;height:18px;font-size:9px;">${ini(p.name)}</div>${p.name}</div>
+    <input type="number" placeholder="0원" value="${paidMap[p.id]||''}" min="0" step="1000" oninput="updatePaid(${p.id},this.value)" inputmode="numeric" />
+  </div>`;
+}).join('');
 }
 
 function calculate(){
@@ -484,9 +488,16 @@ function calculate(){
     ${transferHtml}`;
 
   shareBtn.style.display='flex';
+  const totalEl = document.getElementById('total-summary');
+if(totalEl) {
+  const totalPaid = people.reduce((s,p)=>s+(paidMap[p.id]||0), 0);
+  const remaining = grandTotal - totalPaid;
+  totalEl.textContent = `— 총 ${grandTotal.toLocaleString()}원 / 납부 ${totalPaid.toLocaleString()}원 / 남은 ${remaining.toLocaleString()}원`;
+}
+  saveData();
 }
 
-function renderAll(){ renderPeople(); renderRounds(); calculate(); }
+function renderAll(){ renderPeople(); renderRounds(); calculate(); saveData(); }
 
 async function shareResult(){
   const btn = document.getElementById('share-btn');
@@ -543,6 +554,34 @@ async function shareResult(){
 }
 
 document.getElementById('name-input').addEventListener('keydown', e=>{ if(e.key==='Enter') addPerson(); });
+
+// 저장
+function saveData(){
+  localStorage.setItem('dutchpay', JSON.stringify({people, rounds, paidMap, sponsorMap, pId, rId, iId}));
+}
+
+// 불러오기
+function loadData(){
+  const saved = localStorage.getItem('dutchpay');
+  if(!saved) return;
+  const d = JSON.parse(saved);
+  people = d.people || [];
+  rounds = d.rounds || [];
+  paidMap = d.paidMap || {};
+  sponsorMap = d.sponsorMap || {};
+  pId = d.pId || 0;
+  rId = d.rId || 0;
+  iId = d.iId || 0;
+  renderAll();
+}
+function resetAll(){
+  if(!confirm('전체 초기화할까요? 모든 데이터가 삭제됩니다.')) return;
+  people=[]; rounds=[]; paidMap={}; sponsorMap={}; pId=0; rId=0; iId=0;
+  localStorage.removeItem('dutchpay');
+  renderAll();
+}
+
+loadData();
 </script>
 </body>
 </html>
