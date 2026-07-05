@@ -11,35 +11,32 @@
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f0; color: #1a1a1a; min-height: 100vh; padding-bottom: 60px; }
-
-header { background: #fff; border-bottom: 0.5px solid #e0e0d8; padding: 16px 20px 12px; position: sticky; top: 0; z-index: 10; }
-header h1 { font-size: 18px; font-weight: 700; color: #1a1a1a; }
-header p { font-size: 12px; color: #999; margin-top: 2px; }
-
+header { background: #fff; border-bottom: 0.5px solid #e0e0d8; padding: 14px 20px; position: sticky; top: 0; z-index: 10; }
+header h1 { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; }
+.header-row { display: flex; gap: 8px; align-items: center; }
+.header-row input[type="text"] { flex: 1; font-size: 13px; padding: 7px 10px; border-radius: 8px; border: 0.5px solid #d8d8d0; background: #f8f8f5; color: #1a1a1a; outline: none; min-width: 0; }
+.header-row input[type="text"]:focus { border-color: #378ADD; background: #fff; }
+.date-selects { display: flex; gap: 4px; }
+.date-selects select { font-size: 12px; padding: 7px 6px; border-radius: 8px; border: 0.5px solid #d8d8d0; background: #f8f8f5; color: #1a1a1a; outline: none; cursor: pointer; -webkit-appearance: none; text-align: center; }
+.date-selects select:focus { border-color: #378ADD; }
+#sel-year { width: 72px; }
+#sel-month { width: 48px; }
+#sel-day { width: 48px; }
 .container { padding: 16px; max-width: 480px; margin: 0 auto; }
 .section { margin-bottom: 20px; }
 .card { background: #fff; border-radius: 14px; border: 0.5px solid #e0e0d8; padding: 14px 16px; margin-bottom: 10px; }
 .sec-label { font-size: 11px; font-weight: 600; color: #999; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
-
 .people-wrap { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 10px; }
 .chip { display: flex; align-items: center; gap: 5px; background: #f5f5f0; border: 0.5px solid #e0e0d8; border-radius: 20px; padding: 4px 10px 4px 6px; font-size: 13px; }
 .avatar { border-radius: 50%; font-size: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .chip-remove { background: none; border: none; cursor: pointer; color: #bbb; font-size: 15px; line-height: 1; padding: 0 0 0 2px; display: flex; align-items: center; }
 .chip-remove:active { color: #e24b4a; }
-
 .input-row { display: flex; gap: 8px; }
-input[type="text"], input[type="number"], input[type="tel"] {
-  border: 0.5px solid #d8d8d0; border-radius: 10px; padding: 10px 12px;
-  font-size: 15px; background: #fafaf8; color: #1a1a1a; outline: none; width: 100%; -webkit-appearance: none;
-}
+input[type="text"], input[type="number"], input[type="tel"] { border: 0.5px solid #d8d8d0; border-radius: 10px; padding: 10px 12px; font-size: 15px; background: #fafaf8; color: #1a1a1a; outline: none; width: 100%; -webkit-appearance: none; }
 input:focus { border-color: #378ADD; background: #fff; }
 input[type="number"] { text-align: right; }
-
 button.primary { background: #1a1a1a; color: #fff; border: none; border-radius: 10px; padding: 10px 16px; font-size: 15px; font-weight: 500; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
 button.primary:active { opacity: 0.8; transform: scale(0.97); }
-button.ghost { background: none; border: 0.5px solid #d8d8d0; border-radius: 10px; padding: 9px 14px; font-size: 13px; color: #555; cursor: pointer; }
-button.ghost:active { background: #f0f0ea; }
-
 .round-card { background: #fff; border-radius: 12px; border: 0.5px solid #e0e0d8; margin-bottom: 8px; overflow: hidden; }
 .round-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: 0.5px solid #f0f0e8; }
 .round-title { font-size: 14px; font-weight: 600; color: #1a1a1a; }
@@ -47,44 +44,32 @@ button.ghost:active { background: #f0f0ea; }
 .round-body { padding: 12px 14px; }
 .round-del { background: none; border: none; color: #ccc; cursor: pointer; font-size: 18px; line-height: 1; padding: 2px; }
 .round-del:active { color: #e24b4a; }
-
 .att-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .att-btn { display: flex; align-items: center; gap: 5px; padding: 5px 11px 5px 6px; border-radius: 16px; border: 0.5px solid #e0e0d8; background: #f8f8f5; cursor: pointer; font-size: 12px; color: #777; -webkit-appearance: none; }
 .att-btn.on { border-color: #b5d4f4; background: #e6f1fb; color: #185FA5; }
 .av2 { width: 20px; height: 20px; border-radius: 50%; font-size: 9px; font-weight: 600; display: flex; align-items: center; justify-content: center; }
-
 .item-row { display: grid; grid-template-columns: 1fr 105px 30px; gap: 6px; align-items: center; margin-bottom: 6px; }
 .item-del { background: none; border: 0.5px solid #e0e0d8; border-radius: 8px; width: 30px; height: 38px; color: #ccc; font-size: 17px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .item-del:active { color: #e24b4a; }
 .add-link { background: none; border: none; color: #378ADD; font-size: 12px; cursor: pointer; padding: 2px 0; margin-top: 2px; }
-
-.add-round-btn { width: 100%; background: #f8f8f5; border: 0.5px dashed #c8c8c0; border-radius: 10px; padding: 10px; font-size: 13px; color: #999; cursor: pointer; margin-bottom: 0; }
+.add-round-btn { width: 100%; background: #f8f8f5; border: 0.5px dashed #c8c8c0; border-radius: 10px; padding: 10px; font-size: 13px; color: #999; cursor: pointer; }
 .add-round-btn:active { background: #f0f0ea; }
-
 .two-col { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
-
 .sponsor-item { background: #fffbf0; border: 0.5px solid #f5d88a; border-radius: 10px; padding: 9px 11px; display: flex; flex-direction: column; gap: 4px; }
 .sponsor-name { font-size: 12px; color: #85560B; display: flex; align-items: center; gap: 5px; font-weight: 500; }
 .sponsor-item input { background: #fff; border-color: #e8cfa0; }
-
 .paid-item { background: #f8f8f5; border-radius: 10px; padding: 9px 11px; display: flex; flex-direction: column; gap: 4px; }
 .paid-name { font-size: 12px; color: #666; display: flex; align-items: center; gap: 5px; }
-
 .acc-row { display: grid; grid-template-columns: 76px 1fr; gap: 8px; align-items: center; margin-bottom: 8px; }
 .acc-row:last-child { margin-bottom: 0; }
 .acc-label { font-size: 12px; color: #888; }
-
-/* 영수증 */
 .receipt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 8px; }
 .receipt-thumb { position: relative; border-radius: 8px; overflow: hidden; border: 0.5px solid #e0e0d8; aspect-ratio: 3/4; }
 .receipt-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
 .receipt-del { position: absolute; top: 4px; right: 4px; background: rgba(0,0,0,0.5); border: none; border-radius: 50%; width: 22px; height: 22px; color: #fff; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .receipt-add-btn { border: 0.5px dashed #c8c8c0; border-radius: 8px; aspect-ratio: 3/4; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer; background: #f8f8f5; color: #aaa; font-size: 11px; }
-.receipt-add-btn:active { background: #f0f0ea; }
 .receipt-add-btn input { display: none; }
 .receipt-add-icon { font-size: 24px; line-height: 1; }
-
-/* 결과 */
 .result-block { background: #fff; border-radius: 12px; border: 0.5px solid #e0e0d8; padding: 12px 14px; margin-bottom: 8px; }
 .rr-label { font-size: 10px; font-weight: 600; color: #aaa; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
 .rr-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 0.5px solid #f0f0e8; font-size: 13px; }
@@ -92,50 +77,47 @@ button.ghost:active { background: #f0f0ea; }
 .rr-name { display: flex; align-items: center; gap: 7px; color: #1a1a1a; }
 .rr-amt { font-weight: 600; }
 .sponsor-note { font-size: 11px; color: #85560B; margin-bottom: 6px; background: #fffbf0; border-radius: 6px; padding: 4px 8px; }
-
 .balance-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; margin-top: 10px; }
 .bal-card { border-radius: 10px; padding: 9px 11px; }
-.bal-card.pos { background: #eaf3de; }
-.bal-card.neg { background: #fcebeb; }
-.bal-card.zero { background: #f5f5f0; }
+.bal-card.pos { background: #eaf3de; } .bal-card.neg { background: #fcebeb; } .bal-card.zero { background: #f5f5f0; }
 .bal-name { font-size: 12px; display: flex; align-items: center; gap: 5px; margin-bottom: 3px; }
 .bal-name.pos { color: #3B6D11; } .bal-name.neg { color: #A32D2D; } .bal-name.zero { color: #888; }
 .bal-amt { font-size: 14px; font-weight: 700; }
 .bal-amt.pos { color: #27500A; } .bal-amt.neg { color: #791F1F; } .bal-amt.zero { color: #aaa; }
 .bal-desc { font-size: 11px; margin-top: 1px; }
 .bal-desc.pos { color: #3B6D11; } .bal-desc.neg { color: #A32D2D; } .bal-desc.zero { color: #bbb; }
-
 .transfer-card { background: #fff; border: 0.5px solid #b5d4f4; border-radius: 12px; padding: 12px 14px; margin-top: 10px; }
 .transfer-title { font-size: 12px; font-weight: 600; color: #185FA5; margin-bottom: 8px; }
 .transfer-row { display: flex; align-items: center; gap: 7px; padding: 7px 0; border-bottom: 0.5px solid #f0f0e8; font-size: 13px; }
 .transfer-row:last-child { border-bottom: none; }
 .transfer-arrow { color: #378ADD; font-size: 14px; }
 .transfer-amount { margin-left: auto; font-weight: 700; color: #185FA5; }
-
-.acc-display { margin-top: 10px; background: #f8f8f5; border-radius: 8px; padding: 10px 12px; }
+.acc-display { margin-top: 8px; background: #f8f8f5; border-radius: 8px; padding: 10px 12px; }
 .acc-display .acd-label { font-size: 10px; font-weight: 600; color: #aaa; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
 .acc-display .acd-name { font-size: 13px; color: #555; }
 .acc-display .acd-bank { font-size: 11px; color: #aaa; margin-top: 1px; }
 .acc-display .acd-num { font-size: 16px; font-weight: 700; color: #1a1a1a; margin-top: 3px; letter-spacing: 0.02em; }
-
 .share-btn { width: 100%; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; border: none; background: #FEE500; color: #3C1E1E; margin-top: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; }
 .share-btn:active { opacity: 0.85; transform: scale(0.98); }
-
 .empty { text-align: center; padding: 20px; color: #bbb; font-size: 13px; line-height: 1.6; }
-
 .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 100; align-items: center; justify-content: center; }
 .lightbox.open { display: flex; }
 .lightbox img { max-width: 92vw; max-height: 88vh; border-radius: 8px; object-fit: contain; }
 .lb-close { position: fixed; top: 16px; right: 16px; background: rgba(255,255,255,0.2); border: none; color: #fff; border-radius: 50%; width: 38px; height: 38px; font-size: 22px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-
-.divider { border: none; border-top: 0.5px solid #ece ce4; margin: 0 0 16px; }
 </style>
 </head>
 <body>
 
 <header>
   <h1>더치페이 정산</h1>
-  <p>차수별 정산 · 찬조 · 영수증 · 공유</p>
+  <div class="header-row">
+    <input type="text" id="meeting-name" placeholder="모임 이름" oninput="saveData()" />
+    <div class="date-selects">
+      <select id="sel-year" onchange="saveData()"></select>
+      <select id="sel-month" onchange="saveData()"></select>
+      <select id="sel-day" onchange="saveData()"></select>
+    </div>
+  </div>
 </header>
 
 <div class="container">
@@ -145,6 +127,21 @@ button.ghost:active { background: #f0f0ea; }
     <div class="sec-label">참여 인원</div>
     <div class="card">
       <div class="people-wrap" id="people-wrap"></div>
+      <div style="display:flex;gap:6px;margin-bottom:10px;">
+        <button id="type-normal" onclick="setType('normal')" style="flex:1;padding:6px;border-radius:8px;border:0.5px solid #d8d8d0;background:#1a1a1a;color:#fff;font-size:12px;cursor:pointer;">👤 일반</button>
+        <button id="type-companion" onclick="setType('companion')" style="flex:1;padding:6px;border-radius:8px;border:0.5px solid #d8d8d0;background:#f8f8f5;color:#555;font-size:12px;cursor:pointer;">👶 동반자</button>
+      </div>
+      <div id="companion-options" style="display:none;margin-bottom:10px;">
+        <div style="font-size:11px;color:#aaa;margin-bottom:4px;">책임자</div>
+        <select id="guardian-select" style="width:100%;border:0.5px solid #d8d8d0;border-radius:8px;padding:8px;font-size:13px;background:#fafaf8;color:#1a1a1a;margin-bottom:8px;">
+          <option value="">선택</option>
+        </select>
+        <div style="font-size:11px;color:#aaa;margin-bottom:4px;">비율</div>
+        <div style="display:flex;gap:6px;margin-bottom:8px;">
+          <button id="ratio-full" onclick="setRatio(1)" style="flex:1;padding:6px;border-radius:8px;border:0.5px solid #d8d8d0;background:#1a1a1a;color:#fff;font-size:12px;cursor:pointer;">1인분</button>
+          <button id="ratio-half" onclick="setRatio(0.5)" style="flex:1;padding:6px;border-radius:8px;border:0.5px solid #d8d8d0;background:#f8f8f5;color:#555;font-size:12px;cursor:pointer;">반값</button>
+        </div>
+      </div>
       <div class="input-row">
         <input type="text" id="name-input" placeholder="이름 입력" maxlength="10" />
         <button class="primary" onclick="addPerson()">추가</button>
@@ -175,7 +172,7 @@ button.ghost:active { background: #f0f0ea; }
 
   <!-- 찬조 -->
   <div class="section">
-    <div class="sec-label">찬조 <span style="font-weight:400;color:#bbb;font-size:10px;">총액에서 먼저 차감 (내가 더 낼게 개념)</span></div>
+    <div class="sec-label">찬조 <span style="font-weight:400;color:#bbb;font-size:10px;">총액에서 먼저 차감</span></div>
     <div class="two-col" id="sponsor-grid">
       <div class="empty" style="grid-column:1/-1;padding:10px;">인원을 먼저 추가해 주세요.</div>
     </div>
@@ -192,11 +189,8 @@ button.ghost:active { background: #f0f0ea; }
   <!-- 계좌 -->
   <div class="section">
     <div class="sec-label">계좌 정보 <span style="font-weight:400;color:#bbb;font-size:10px;">공유 이미지에 포함</span></div>
-    <div class="card">
-      <div class="acc-row"><span class="acc-label">예금주</span><input type="text" id="acc-name" placeholder="홍길동" oninput="calculate()" /></div>
-      <div class="acc-row"><span class="acc-label">은행</span><input type="text" id="acc-bank" placeholder="카카오뱅크" oninput="calculate()" /></div>
-      <div class="acc-row"><span class="acc-label">계좌번호</span><input type="tel" id="acc-num" placeholder="3333-00-0000000" oninput="calculate()" /></div>
-    </div>
+    <div id="account-list"></div>
+    <button onclick="addAccount()" style="width:100%;background:#f8f8f5;border:0.5px dashed #c8c8c0;border-radius:10px;padding:10px;font-size:13px;color:#999;cursor:pointer;">＋ 계좌 추가</button>
   </div>
 
   <!-- 결과 -->
@@ -207,12 +201,11 @@ button.ghost:active { background: #f0f0ea; }
       📷 카카오톡 공유용 이미지 저장
     </button>
     <button onclick="resetAll()" style="width:100%;padding:11px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:0.5px solid #e0e0d8;background:#fff;color:#e24b4a;margin-top:8px;">
-  🗑 전체 초기화
-</button>
-
+      🗑 전체 초기화
+    </button>
   </div>
-</div>
 
+</div>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lb-close">✕</button>
@@ -227,72 +220,148 @@ const COLORS = [
   {bg:'#FBEAF0',text:'#993556'},{bg:'#FAEEDA',text:'#854F0B'},
   {bg:'#EAF3DE',text:'#3B6D11'},{bg:'#FCEBEB',text:'#A32D2D'},
 ];
-let people=[], rounds=[], paidMap={}, sponsorMap={}, receipts=[];
-let pId=0, rId=0, iId=0, rcId=0;
+let people=[], rounds=[], paidMap={}, sponsorMap={}, receipts=[], accounts=[];
+let pId=0, rId=0, iId=0, rcId=0, acId=0;
+let currentType='normal', currentRatio=1;
 
-function gc(i){ return COLORS[i % COLORS.length]; }
+function gc(i){ return COLORS[i%COLORS.length]; }
 function ini(n){ return n.slice(0,2).toUpperCase(); }
 function pidx(id){ return people.findIndex(p=>p.id===id); }
 
-/* 인원 */
+/* 날짜 드롭다운 초기화 */
+function initDateSelects(){
+  const now = new Date();
+  const ySel = document.getElementById('sel-year');
+  const mSel = document.getElementById('sel-month');
+  const dSel = document.getElementById('sel-day');
+  const curY = now.getFullYear();
+  for(let y=curY-2; y<=curY+2; y++){
+    const o=document.createElement('option');
+    o.value=y; o.textContent=y+'년';
+    if(y===curY) o.selected=true;
+    ySel.appendChild(o);
+  }
+  for(let m=1; m<=12; m++){
+    const o=document.createElement('option');
+    o.value=m; o.textContent=m+'월';
+    if(m===now.getMonth()+1) o.selected=true;
+    mSel.appendChild(o);
+  }
+  updateDaySelect();
+  dSel.value=now.getDate();
+}
+function updateDaySelect(){
+  const y=parseInt(document.getElementById('sel-year').value);
+  const m=parseInt(document.getElementById('sel-month').value);
+  const dSel=document.getElementById('sel-day');
+  const cur=dSel.value;
+  const days=new Date(y,m,0).getDate();
+  dSel.innerHTML='';
+  for(let d=1; d<=days; d++){
+    const o=document.createElement('option');
+    o.value=d; o.textContent=d+'일';
+    dSel.appendChild(o);
+  }
+  if(cur && cur<=days) dSel.value=cur;
+}
+function getDateStr(){
+  const y=document.getElementById('sel-year').value;
+  const m=document.getElementById('sel-month').value;
+  const d=document.getElementById('sel-day').value;
+  return `${y}년 ${m}월 ${d}일`;
+}
+
+function setType(type){
+  currentType=type;
+  document.getElementById('type-normal').style.background=type==='normal'?'#1a1a1a':'#f8f8f5';
+  document.getElementById('type-normal').style.color=type==='normal'?'#fff':'#555';
+  document.getElementById('type-companion').style.background=type==='companion'?'#1a1a1a':'#f8f8f5';
+  document.getElementById('type-companion').style.color=type==='companion'?'#fff':'#555';
+  document.getElementById('companion-options').style.display=type==='companion'?'block':'none';
+}
+function setRatio(r){
+  currentRatio=r;
+  document.getElementById('ratio-full').style.background=r===1?'#1a1a1a':'#f8f8f5';
+  document.getElementById('ratio-full').style.color=r===1?'#fff':'#555';
+  document.getElementById('ratio-half').style.background=r===0.5?'#1a1a1a':'#f8f8f5';
+  document.getElementById('ratio-half').style.color=r===0.5?'#fff':'#555';
+}
+
 function addPerson(){
-  const inp = document.getElementById('name-input');
-  const name = inp.value.trim();
-  if(!name || people.find(p=>p.name===name)){ inp.value=''; return; }
-  const p = {id:pId++, name};
+  const inp=document.getElementById('name-input');
+  const name=inp.value.trim();
+  if(!name||people.find(p=>p.name===name)){inp.value='';return;}
+  const guardianId=currentType==='companion'?parseInt(document.getElementById('guardian-select').value)||null:null;
+  if(currentType==='companion'&&!guardianId){alert('책임자를 선택해 주세요!');return;}
+  const p={id:pId++,name,type:currentType,ratio:currentRatio,guardianId};
   people.push(p);
   paidMap[p.id]=0; sponsorMap[p.id]=0;
-  rounds.forEach(r=>{ r.attendees[p.id]=true; });
   inp.value=''; renderAll();
 }
 function removePerson(id){
-  people = people.filter(p=>p.id!==id);
+  people=people.filter(p=>p.id!==id&&p.guardianId!==id);
   delete paidMap[id]; delete sponsorMap[id];
   rounds.forEach(r=>{ delete r.attendees[id]; });
   renderAll();
 }
 
-/* 차수 */
+function addAccount(){
+  accounts.push({id:acId++,name:'',bank:'',num:''});
+  renderAccounts();
+}
+function removeAccount(id){
+  accounts=accounts.filter(a=>a.id!==id);
+  renderAccounts(); calculate();
+}
+function updateAccount(id,field,val){
+  const a=accounts.find(a=>a.id===id);
+  if(a){ a[field]=val; calculate(); }
+}
+function renderAccounts(){
+  document.getElementById('account-list').innerHTML=accounts.map(a=>`
+    <div class="card" style="margin-bottom:8px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <span style="font-size:12px;color:#aaa;font-weight:600;">계좌 정보</span>
+        <button onclick="removeAccount(${a.id})" style="background:none;border:none;color:#ccc;font-size:18px;cursor:pointer;">×</button>
+      </div>
+      <div class="acc-row"><span class="acc-label">예금주</span><input type="text" placeholder="홍길동" value="${a.name}" oninput="updateAccount(${a.id},'name',this.value)" /></div>
+      <div class="acc-row"><span class="acc-label">은행</span><input type="text" placeholder="카카오뱅크" value="${a.bank}" oninput="updateAccount(${a.id},'bank',this.value)" /></div>
+      <div class="acc-row" style="margin-bottom:0;"><span class="acc-label">계좌번호</span><input type="tel" placeholder="3333-00-0000000" value="${a.num}" oninput="updateAccount(${a.id},'num',this.value)" /></div>
+    </div>`).join('');
+}
+
 function addRound(){
   const att={};
   people.forEach(p=>{ att[p.id]=true; });
-  rounds.push({id:rId++, items:[], attendees:att});
+  rounds.push({id:rId++,items:[],attendees:att});
   renderRounds(); calculate();
 }
-function removeRound(id){
-  rounds = rounds.filter(r=>r.id!==id);
-  renderRounds(); calculate();
-}
+function removeRound(id){ rounds=rounds.filter(r=>r.id!==id); renderRounds(); calculate(); }
 function toggleAttendee(rid,pid){
-  const r = rounds.find(r=>r.id===rid);
+  const r=rounds.find(r=>r.id===rid);
   if(r){ r.attendees[pid]=!r.attendees[pid]; renderRounds(); calculate(); }
 }
 function addItem(rid){
-  const r = rounds.find(r=>r.id===rid);
+  const r=rounds.find(r=>r.id===rid);
   if(r){ r.items.push({id:iId++,name:'',amount:''}); renderRounds(); }
 }
 function removeItem(rid,iid){
-  const r = rounds.find(r=>r.id===rid);
+  const r=rounds.find(r=>r.id===rid);
   if(r){ r.items=r.items.filter(it=>it.id!==iid); renderRounds(); calculate(); }
 }
 function updateItem(rid,iid,field,val){
-  const r = rounds.find(r=>r.id===rid);
-  const it = r && r.items.find(it=>it.id===iid);
+  const r=rounds.find(r=>r.id===rid);
+  const it=r&&r.items.find(it=>it.id===iid);
   if(it){ it[field]=val; calculate(); }
 }
 
-/* 납부/찬조 */
 function updatePaid(pid,val){ paidMap[pid]=parseFloat(val)||0; calculate(); }
 function updateSponsor(pid,val){ sponsorMap[pid]=parseFloat(val)||0; calculate(); }
 
-/* 영수증 */
 function addReceipts(input){
   Array.from(input.files).forEach(file=>{
-    const reader = new FileReader();
-    reader.onload = e => {
-      receipts.push({id:rcId++, src:e.target.result});
-      renderReceipts();
-    };
+    const reader=new FileReader();
+    reader.onload=e=>{ receipts.push({id:rcId++,src:e.target.result}); renderReceipts(); };
     reader.readAsDataURL(file);
   });
   input.value='';
@@ -301,26 +370,34 @@ function removeReceipt(id){ receipts=receipts.filter(r=>r.id!==id); renderReceip
 function openLightbox(src){ document.getElementById('lightbox-img').src=src; document.getElementById('lightbox').classList.add('open'); }
 function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
 
-/* 렌더링 */
 function renderPeople(){
-  document.getElementById('people-wrap').innerHTML = people.map((p,i)=>{
+  document.getElementById('people-wrap').innerHTML=people.map((p,i)=>{
     const c=gc(i);
+    const guardian=p.guardianId!=null?people.find(g=>g.id===p.guardianId):null;
+    const tags=[
+      p.type==='companion'?`<span style="font-size:10px;background:#fffbf0;color:#85560B;border-radius:6px;padding:1px 6px;border:0.5px solid #f5d88a;">동반→${guardian?guardian.name:''}</span>`:'',
+      p.ratio===0.5?`<span style="font-size:10px;background:#e6f1fb;color:#185FA5;border-radius:6px;padding:1px 6px;border:0.5px solid #b5d4f4;">반값</span>`:'',
+    ].filter(Boolean).join(' ');
     return `<div class="chip">
       <div class="avatar" style="background:${c.bg};color:${c.text};width:22px;height:22px;">${ini(p.name)}</div>
-      ${p.name}
+      ${p.name} ${tags}
       <button class="chip-remove" onclick="removePerson(${p.id})">×</button>
     </div>`;
   }).join('');
+  const sel=document.getElementById('guardian-select');
+  const cur=sel.value;
+  sel.innerHTML='<option value="">선택</option>'+
+    people.filter(p=>p.type==='normal').map(p=>`<option value="${p.id}">${p.name}</option>`).join('');
+  sel.value=cur;
 }
 
 function renderReceipts(){
-  const grid = document.getElementById('receipt-grid');
-  const thumbs = receipts.map((r,i)=>`
+  const grid=document.getElementById('receipt-grid');
+  grid.innerHTML=receipts.map((r,i)=>`
     <div class="receipt-thumb">
       <img src="${r.src}" alt="영수증 ${i+1}" onclick="openLightbox('${r.src}')" />
       <button class="receipt-del" onclick="removeReceipt(${r.id})">×</button>
-    </div>`).join('');
-  grid.innerHTML = thumbs + `
+    </div>`).join('')+`
     <label class="receipt-add-btn">
       <input type="file" accept="image/*" multiple onchange="addReceipts(this)" />
       <span class="receipt-add-icon">＋</span>
@@ -329,22 +406,22 @@ function renderReceipts(){
 }
 
 function renderRounds(){
-  document.getElementById('rounds-list').innerHTML = rounds.map((r,ri)=>{
-    const atBtns = people.map((p,i)=>{
+  document.getElementById('rounds-list').innerHTML=rounds.map((r,ri)=>{
+    const atBtns=people.map((p,i)=>{
       const c=gc(i); const on=r.attendees[p.id];
       return `<button class="att-btn ${on?'on':''}" onclick="toggleAttendee(${r.id},${p.id})">
         <div class="av2" style="background:${on?c.bg:'#ececec'};color:${on?c.text:'#aaa'}">${ini(p.name)}</div>
         ${p.name}${on?'':' ✕'}
       </button>`;
     }).join('');
-    const itemRows = r.items.map(it=>`
+    const itemRows=r.items.map(it=>`
       <div class="item-row">
         <input type="text" placeholder="항목명" value="${it.name}" oninput="updateItem(${r.id},${it.id},'name',this.value)" style="font-size:13px;" />
         <input type="number" placeholder="금액" value="${it.amount}" min="0" step="100" oninput="updateItem(${r.id},${it.id},'amount',this.value)" style="font-size:13px;" inputmode="numeric" />
         <button class="item-del" onclick="removeItem(${r.id},${it.id})">×</button>
       </div>`).join('');
-    const total = r.items.reduce((s,it)=>s+(parseFloat(it.amount)||0),0);
-    const cnt = Object.values(r.attendees).filter(Boolean).length;
+    const total=r.items.reduce((s,it)=>s+(parseFloat(it.amount)||0),0);
+    const cnt=Object.values(r.attendees).filter(Boolean).length;
     return `<div class="round-card">
       <div class="round-header">
         <span class="round-title">${ri+1}차<span class="round-meta"> ${cnt}명${total?' · '+total.toLocaleString()+'원':''}</span></span>
@@ -360,57 +437,71 @@ function renderRounds(){
     </div>`;
   }).join('');
 
-  document.getElementById('sponsor-grid').innerHTML = people.length ? people.map((p,i)=>{
+  document.getElementById('sponsor-grid').innerHTML=people.length?people.map((p,i)=>{
     const c=gc(i);
     return `<div class="sponsor-item">
       <div class="sponsor-name"><div class="avatar" style="background:${c.bg};color:${c.text};width:18px;height:18px;font-size:9px;">${ini(p.name)}</div>${p.name}</div>
       <input type="number" placeholder="0원" value="${sponsorMap[p.id]||''}" min="0" step="1000" oninput="updateSponsor(${p.id},this.value)" inputmode="numeric" />
     </div>`;
-  }).join('') : '<div class="empty" style="grid-column:1/-1;padding:10px;">인원을 먼저 추가해 주세요.</div>';
+  }).join(''):'<div class="empty" style="grid-column:1/-1;padding:10px;">인원을 먼저 추가해 주세요.</div>';
 
-  document.getElementById('paid-grid').innerHTML = people.map((p,i)=>{
-  const c=gc(i);
-  return `<div class="paid-item">
-    <div class="paid-name"><div class="avatar" style="background:${c.bg};color:${c.text};width:18px;height:18px;font-size:9px;">${ini(p.name)}</div>${p.name}</div>
-    <input type="number" placeholder="0원" value="${paidMap[p.id]||''}" min="0" step="1000" oninput="updatePaid(${p.id},this.value)" inputmode="numeric" />
-  </div>`;
-}).join('');
+  document.getElementById('paid-grid').innerHTML=people.map((p,i)=>{
+    const c=gc(i);
+    return `<div class="paid-item">
+      <div class="paid-name"><div class="avatar" style="background:${c.bg};color:${c.text};width:18px;height:18px;font-size:9px;">${ini(p.name)}</div>${p.name}</div>
+      <input type="number" placeholder="0원" value="${paidMap[p.id]||''}" min="0" step="1000" oninput="updatePaid(${p.id},this.value)" inputmode="numeric" />
+    </div>`;
+  }).join('');
 }
 
 function calculate(){
-  const area = document.getElementById('result-area');
-  const shareBtn = document.getElementById('share-btn');
-  if(!people.length || !rounds.length){
+  const area=document.getElementById('result-area');
+  const shareBtn=document.getElementById('share-btn');
+  if(!people.length||!rounds.length){
     area.innerHTML='<div class="empty">인원과 차수를 추가하면<br>결과가 나타납니다.</div>';
     shareBtn.style.display='none'; return;
   }
-  const totalSponsor = people.reduce((s,p)=>s+(sponsorMap[p.id]||0),0);
+  const totalSponsor=people.reduce((s,p)=>s+(sponsorMap[p.id]||0),0);
   const shouldPay={};
   people.forEach(p=>{ shouldPay[p.id]=0; });
   let grandTotal=0, roundsHtml='';
 
   rounds.forEach((r,ri)=>{
-    const rawTotal = r.items.reduce((s,it)=>s+(parseFloat(it.amount)||0),0);
+    const rawTotal=r.items.reduce((s,it)=>s+(parseFloat(it.amount)||0),0);
     if(!rawTotal) return;
-    grandTotal += rawTotal;
-    const attendees = people.filter(p=>r.attendees[p.id]);
+    grandTotal+=rawTotal;
+    const attendees=people.filter(p=>r.attendees[p.id]);
     if(!attendees.length) return;
-    const afterSponsor = Math.max(0, rawTotal - totalSponsor);
-    const per = Math.ceil(afterSponsor / attendees.length);
-    attendees.forEach(p=>{ shouldPay[p.id]+=per; });
-    const absent = people.filter(p=>!r.attendees[p.id]);
-    const sponsorLine = totalSponsor>0
-      ? `<div class="sponsor-note">찬조 ${totalSponsor.toLocaleString()}원 차감 → 실부담 ${afterSponsor.toLocaleString()}원</div>` : '';
-    const rows = attendees.map(p=>{
+    const totalUnits=attendees.reduce((s,p)=>s+(p.ratio||1),0);
+    const afterSponsor=Math.max(0,rawTotal-totalSponsor);
+    const perUnit=afterSponsor/totalUnits;
+    attendees.forEach(p=>{
+      const amt=Math.ceil(perUnit*(p.ratio||1));
+      if(p.type==='companion'&&p.guardianId!=null){
+        shouldPay[p.guardianId]=(shouldPay[p.guardianId]||0)+amt;
+      } else {
+        shouldPay[p.id]=(shouldPay[p.id]||0)+amt;
+      }
+    });
+    const absent=people.filter(p=>!r.attendees[p.id]);
+    const sponsorLine=totalSponsor>0?`<div class="sponsor-note">찬조 ${totalSponsor.toLocaleString()}원 차감 → 실부담 ${afterSponsor.toLocaleString()}원</div>`:'';
+    const rows=attendees.filter(p=>p.type!=='companion').map(p=>{
       const c=gc(pidx(p.id));
-      return `<div class="rr-row">
-        <div class="rr-name"><div class="avatar" style="background:${c.bg};color:${c.text};width:20px;height:20px;font-size:9px;">${ini(p.name)}</div>${p.name}</div>
-        <div class="rr-amt">${per.toLocaleString()}원</div>
+      const myCompanions=attendees.filter(cp=>cp.type==='companion'&&cp.guardianId===p.id);
+      const myAmt=Math.ceil(perUnit*(p.ratio||1));
+      const companionAmt=myCompanions.reduce((s,cp)=>s+Math.ceil(perUnit*(cp.ratio||1)),0);
+      const total=myAmt+companionAmt;
+      return `<div class="rr-row" style="flex-direction:column;align-items:stretch;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div class="rr-name"><div class="avatar" style="background:${c.bg};color:${c.text};width:20px;height:20px;font-size:9px;">${ini(p.name)}</div>${p.name}</div>
+          <div class="rr-amt">${total.toLocaleString()}원</div>
+        </div>
+        ${myCompanions.length?`<div style="font-size:11px;color:#aaa;margin-left:27px;margin-top:2px;">본인 ${myAmt.toLocaleString()}원 + 동반 ${companionAmt.toLocaleString()}원</div>`:''}
       </div>`;
     }).join('');
-    const absentBadges = absent.map(p=>`<span style="font-size:11px;background:#f5f5f0;color:#aaa;border-radius:6px;padding:2px 7px;border:0.5px solid #e0e0d8;">${p.name} 불참</span>`).join(' ');
-    roundsHtml += `<div class="result-block">
-      <div class="rr-label">${ri+1}차 · ${rawTotal.toLocaleString()}원 ÷ ${attendees.length}명 = 1인 ${per.toLocaleString()}원</div>
+    const absentBadges=absent.map(p=>`<span style="font-size:11px;background:#f5f5f0;color:#aaa;border-radius:6px;padding:2px 7px;border:0.5px solid #e0e0d8;">${p.name} 불참</span>`).join(' ');
+    roundsHtml+=`<div class="result-block">
+      <div class="rr-label">${ri+1}차 · ${rawTotal.toLocaleString()}원</div>
       ${sponsorLine}${rows}
       ${absent.length?`<div style="margin-top:6px;display:flex;gap:5px;flex-wrap:wrap;">${absentBadges}</div>`:''}
     </div>`;
@@ -421,16 +512,16 @@ function calculate(){
     shareBtn.style.display='none'; return;
   }
 
-  const sponsorBadges = people.filter(p=>sponsorMap[p.id]>0).map(p=>{
+  const sponsorBadges=people.filter(p=>sponsorMap[p.id]>0).map(p=>{
     const c=gc(pidx(p.id));
     return `<span style="font-size:11px;background:#fffbf0;color:#85560B;border-radius:8px;padding:3px 8px;border:0.5px solid #f5d88a;display:inline-flex;align-items:center;gap:4px;"><div class="avatar" style="background:${c.bg};color:${c.text};width:14px;height:14px;font-size:8px;display:inline-flex;">${ini(p.name)}</div>${p.name} ${sponsorMap[p.id].toLocaleString()}원</span>`;
   }).join(' ');
 
   const balance={};
-    people.forEach(p=>{ balance[p.id]=(paidMap[p.id]||0)-shouldPay[p.id]; });
+  people.forEach(p=>{ balance[p.id]=(paidMap[p.id]||0)-shouldPay[p.id]; });
 
-  const balanceCards = people.map((p,i)=>{
-    const c=gc(i); const b=balance[p.id];
+  const balanceCards=people.filter(p=>p.type!=='companion').map(p=>{
+    const c=gc(pidx(p.id)); const b=balance[p.id];
     const cls=b>0?'pos':b<0?'neg':'zero';
     const desc=b>0?`${b.toLocaleString()}원 돌려받음`:b<0?`${Math.abs(b).toLocaleString()}원 더 내야 함`:'정산 완료';
     return `<div class="bal-card ${cls}">
@@ -440,29 +531,27 @@ function calculate(){
     </div>`;
   }).join('');
 
-  const recvArr = people.filter(p=>balance[p.id]>0).map(p=>({...p,rem:balance[p.id]}));
-  const payArr  = people.filter(p=>balance[p.id]<0).map(p=>({...p,rem:-balance[p.id]}));
+  const recvArr=people.filter(p=>p.type!=='companion'&&balance[p.id]>0).map(p=>({...p,rem:balance[p.id]}));
+  const payArr=people.filter(p=>p.type!=='companion'&&balance[p.id]<0).map(p=>({...p,rem:-balance[p.id]}));
   const transfers=[];
   let ri2=0,pi=0;
-  while(ri2<recvArr.length && pi<payArr.length){
-    const amt=Math.min(recvArr[ri2].rem, payArr[pi].rem);
+  while(ri2<recvArr.length&&pi<payArr.length){
+    const amt=Math.min(recvArr[ri2].rem,payArr[pi].rem);
     if(amt>0) transfers.push({from:payArr[pi].name,fromId:payArr[pi].id,to:recvArr[ri2].name,toId:recvArr[ri2].id,amt});
     recvArr[ri2].rem-=amt; payArr[pi].rem-=amt;
     if(recvArr[ri2].rem<=0) ri2++;
     if(payArr[pi].rem<=0) pi++;
   }
 
-  const accName=document.getElementById('acc-name').value.trim();
-  const accBank=document.getElementById('acc-bank').value.trim();
-  const accNum =document.getElementById('acc-num').value.trim();
-  const accHtml=(accBank||accNum)?`<div class="acc-display">
-    <div class="acd-label">송금 계좌</div>
-    ${accName?`<div class="acd-name">${accName}</div>`:''}
-    ${accBank?`<div class="acd-bank">${accBank}</div>`:''}
-    ${accNum?`<div class="acd-num">${accNum}</div>`:''}
-  </div>`:'';
+  const accHtml=accounts.filter(a=>a.bank||a.num).map(a=>`
+    <div class="acc-display">
+      <div class="acd-label">송금 계좌</div>
+      ${a.name?`<div class="acd-name">${a.name}</div>`:''}
+      ${a.bank?`<div class="acd-bank">${a.bank}</div>`:''}
+      ${a.num?`<div class="acd-num">${a.num}</div>`:''}
+    </div>`).join('');
 
-  const transferHtml = transfers.length ? `<div class="transfer-card">
+  const transferHtml=transfers.length?`<div class="transfer-card">
     <div class="transfer-title">송금 방법</div>
     ${transfers.map(t=>{
       const fc=gc(pidx(t.fromId)); const tc=gc(pidx(t.toId));
@@ -474,114 +563,119 @@ function calculate(){
       </div>`;
     }).join('')}
     ${accHtml}
-  </div>` : '';
+  </div>`:accHtml?`<div class="transfer-card">${accHtml}</div>`:'';
 
-  area.innerHTML = `${roundsHtml}
+  area.innerHTML=`${roundsHtml}
     <div style="margin-top:12px;">
       <div class="sec-label">찬조 내역</div>
-      ${totalSponsor>0
-        ? `<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">${sponsorBadges}</div>`
-        : '<div style="font-size:12px;color:#ccc;margin-bottom:10px;">찬조 없음</div>'}
+      ${totalSponsor>0?`<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">${sponsorBadges}</div>`:'<div style="font-size:12px;color:#ccc;margin-bottom:10px;">찬조 없음</div>'}
       <div class="sec-label">잔액 현황</div>
       <div class="balance-grid">${balanceCards}</div>
     </div>
     ${transferHtml}`;
 
   shareBtn.style.display='flex';
-  const totalEl = document.getElementById('total-summary');
-if(totalEl) {
-const totalSponsor = people.reduce((s,p)=>s+(sponsorMap[p.id]||0), 0);
-const totalPaid = people.reduce((s,p)=>s+(paidMap[p.id]||0), 0);
-const remaining = grandTotal - totalSponsor - totalPaid;
-  totalEl.textContent = `— 총 ${grandTotal.toLocaleString()}원 / 찬조 ${totalSponsor.toLocaleString()}원 / 납부 ${totalPaid.toLocaleString()}원 / 남은 ${remaining.toLocaleString()}원`;
-}
+
+  const totalEl=document.getElementById('total-summary');
+  if(totalEl){
+    const totalPaid=people.reduce((s,p)=>s+(paidMap[p.id]||0),0);
+    const remaining=grandTotal-totalSponsor-totalPaid;
+    totalEl.textContent=`— 총 ${grandTotal.toLocaleString()}원 / 찬조 ${totalSponsor.toLocaleString()}원 / 납부 ${totalPaid.toLocaleString()}원 / 남은 ${remaining.toLocaleString()}원`;
+  }
   saveData();
 }
 
-function renderAll(){ renderPeople(); renderRounds(); calculate(); saveData(); }
+function renderAll(){ renderPeople(); renderAccounts(); renderRounds(); calculate(); }
+
+function saveData(){
+  const mName=document.getElementById('meeting-name').value;
+  const mYear=document.getElementById('sel-year').value;
+  const mMonth=document.getElementById('sel-month').value;
+  const mDay=document.getElementById('sel-day').value;
+  localStorage.setItem('dutchpay',JSON.stringify({people,rounds,paidMap,sponsorMap,accounts,pId,rId,iId,acId,mName,mYear,mMonth,mDay}));
+}
+
+function loadData(){
+  const saved=localStorage.getItem('dutchpay');
+  if(!saved) return;
+  const d=JSON.parse(saved);
+  people=(d.people||[]).map(p=>({type:'normal',ratio:1,guardianId:null,...p}));
+  rounds=d.rounds||[];
+  paidMap=d.paidMap||{};
+  sponsorMap=d.sponsorMap||{};
+  accounts=d.accounts||[];
+  pId=d.pId||0; rId=d.rId||0; iId=d.iId||0; acId=d.acId||0;
+  if(d.mName) document.getElementById('meeting-name').value=d.mName;
+  if(d.mYear) document.getElementById('sel-year').value=d.mYear;
+  if(d.mMonth) document.getElementById('sel-month').value=d.mMonth;
+  if(d.mDay){ updateDaySelect(); document.getElementById('sel-day').value=d.mDay; }
+  renderAll();
+}
+
+function resetAll(){
+  if(!confirm('전체 초기화할까요? 모든 데이터가 삭제됩니다.')) return;
+  people=[]; rounds=[]; paidMap={}; sponsorMap={}; accounts=[];
+  pId=0; rId=0; iId=0; acId=0;
+  document.getElementById('meeting-name').value='';
+  const now=new Date();
+  document.getElementById('sel-year').value=now.getFullYear();
+  document.getElementById('sel-month').value=now.getMonth()+1;
+  updateDaySelect();
+  document.getElementById('sel-day').value=now.getDate();
+  localStorage.removeItem('dutchpay');
+  renderAll();
+}
 
 async function shareResult(){
-  const btn = document.getElementById('share-btn');
-  btn.textContent = '이미지 생성 중...';
-  btn.style.opacity = '0.7';
-
-  const resultEl = document.getElementById('result-area');
-  const accName=document.getElementById('acc-name').value.trim();
-  const accBank=document.getElementById('acc-bank').value.trim();
-  const accNum =document.getElementById('acc-num').value.trim();
-
-  const wrapper = document.createElement('div');
-  wrapper.style.cssText = 'position:fixed;left:-9999px;top:0;width:390px;padding:22px;background:#ffffff;font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#1a1a1a;';
-
-  const hdr = document.createElement('div');
-  hdr.style.cssText = 'margin-bottom:16px;';
-  hdr.innerHTML = `<div style="font-size:20px;font-weight:700;color:#1a1a1a;">더치페이 정산</div>
-    <div style="font-size:12px;color:#aaa;margin-top:2px;">${new Date().toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric'})}</div>`;
+  const btn=document.getElementById('share-btn');
+  btn.textContent='이미지 생성 중...';
+  btn.style.opacity='0.7';
+  const resultEl=document.getElementById('result-area');
+  const mName=document.getElementById('meeting-name').value.trim();
+  const dateStr=getDateStr();
+  const wrapper=document.createElement('div');
+  wrapper.style.cssText='position:fixed;left:-9999px;top:0;width:390px;padding:22px;background:#ffffff;font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#1a1a1a;';
+  const hdr=document.createElement('div');
+  hdr.style.cssText='margin-bottom:16px;';
+  hdr.innerHTML=`<div style="font-size:20px;font-weight:700;color:#1a1a1a;">${mName||'더치페이 정산'}</div>
+    <div style="font-size:12px;color:#aaa;margin-top:2px;">${dateStr}</div>`;
   wrapper.appendChild(hdr);
-
-  const clone = resultEl.cloneNode(true);
+  const clone=resultEl.cloneNode(true);
   clone.querySelectorAll('button').forEach(b=>b.remove());
   wrapper.appendChild(clone);
-
-  if(receipts.length > 0){
-    const rdiv = document.createElement('div');
-    rdiv.style.cssText = 'margin-top:20px;padding-top:16px;border-top:1px solid #eee;';
-    rdiv.innerHTML = `<div style="font-size:10px;font-weight:600;color:#aaa;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">영수증</div>`;
-    const rgrid = document.createElement('div');
-    rgrid.style.cssText = `display:grid;grid-template-columns:repeat(${Math.min(receipts.length,3)},1fr);gap:8px;`;
+  if(receipts.length>0){
+    const rdiv=document.createElement('div');
+    rdiv.style.cssText='margin-top:20px;padding-top:16px;border-top:1px solid #eee;';
+    rdiv.innerHTML=`<div style="font-size:10px;font-weight:600;color:#aaa;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">영수증</div>`;
+    const rgrid=document.createElement('div');
+    rgrid.style.cssText=`display:grid;grid-template-columns:repeat(${Math.min(receipts.length,3)},1fr);gap:8px;`;
     receipts.forEach(r=>{
-      const img = document.createElement('img');
-      img.src = r.src;
-      img.style.cssText = 'width:100%;border-radius:8px;border:1px solid #eee;display:block;';
+      const img=document.createElement('img');
+      img.src=r.src;
+      img.style.cssText='width:100%;border-radius:8px;border:1px solid #eee;display:block;';
       rgrid.appendChild(img);
     });
     rdiv.appendChild(rgrid);
     wrapper.appendChild(rdiv);
   }
-
   document.body.appendChild(wrapper);
-  try {
-    const canvas = await html2canvas(wrapper,{scale:2,backgroundColor:'#ffffff',useCORS:true,allowTaint:true,logging:false});
-    const link = document.createElement('a');
-    link.download = '더치페이_정산.png';
-    link.href = canvas.toDataURL('image/png');
+  try{
+    const canvas=await html2canvas(wrapper,{scale:2,backgroundColor:'#ffffff',useCORS:true,allowTaint:true,logging:false});
+    const link=document.createElement('a');
+    link.download='더치페이_정산.png';
+    link.href=canvas.toDataURL('image/png');
     link.click();
-  } catch(e) {
-    alert('이미지 저장에 실패했어요. 다시 시도해 주세요.');
-  }
+  }catch(e){ alert('이미지 저장에 실패했어요. 다시 시도해 주세요.'); }
   document.body.removeChild(wrapper);
-  btn.textContent = '📷 카카오톡 공유용 이미지 저장';
-  btn.style.opacity = '1';
+  btn.textContent='📷 카카오톡 공유용 이미지 저장';
+  btn.style.opacity='1';
 }
 
-document.getElementById('name-input').addEventListener('keydown', e=>{ if(e.key==='Enter') addPerson(); });
+document.getElementById('name-input').addEventListener('keydown',e=>{ if(e.key==='Enter') addPerson(); });
+document.getElementById('sel-year').addEventListener('change', updateDaySelect);
+document.getElementById('sel-month').addEventListener('change', updateDaySelect);
 
-// 저장
-function saveData(){
-  localStorage.setItem('dutchpay', JSON.stringify({people, rounds, paidMap, sponsorMap, pId, rId, iId}));
-}
-
-// 불러오기
-function loadData(){
-  const saved = localStorage.getItem('dutchpay');
-  if(!saved) return;
-  const d = JSON.parse(saved);
-  people = d.people || [];
-  rounds = d.rounds || [];
-  paidMap = d.paidMap || {};
-  sponsorMap = d.sponsorMap || {};
-  pId = d.pId || 0;
-  rId = d.rId || 0;
-  iId = d.iId || 0;
-  renderAll();
-}
-function resetAll(){
-  if(!confirm('전체 초기화할까요? 모든 데이터가 삭제됩니다.')) return;
-  people=[]; rounds=[]; paidMap={}; sponsorMap={}; pId=0; rId=0; iId=0;
-  localStorage.removeItem('dutchpay');
-  renderAll();
-}
-
+initDateSelects();
 loadData();
 </script>
 </body>
