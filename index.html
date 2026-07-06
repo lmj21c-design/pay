@@ -358,7 +358,7 @@ function updateItem(rid,iid,field,val){
 function updatePaid(pid,val){ paidMap[pid]=parseFloat(val)||0; calculate(); }
 function updateSponsor(rid,pid,val){
   const r=rounds.find(r=>r.id===rid);
-  if(r){ r.sponsor[pid]=parseFloat(val)||0; renderRounds(); calculate(); }
+  if(r){ r.sponsor[pid]=parseFloat(val)||0; calculate(); }
 }
 function toggleSponsorExempt(rid,pid,checked){
   const r=rounds.find(r=>r.id===rid);
@@ -437,18 +437,19 @@ function renderRounds(){
     const attendees=people.filter(p=>r.attendees[p.id]);
 
     const sponsorInputs=attendees.map(p=>{
-      const exempt=r.sponsorExempt[p.id]||false;
-      const hasSponsor=(r.sponsor[p.id]||0)>0;
-      return `<div class="sponsor-item">
-        <div class="sponsor-name">${makeAvatar(p,16,8)}${p.name}</div>
-        <input type="number" placeholder="0원" value="${r.sponsor[p.id]||''}" min="0" step="1000"
-          oninput="updateSponsor(${r.id},${p.id},this.value)" inputmode="numeric" />
-        ${hasSponsor?`<label class="sponsor-exempt">
-          <input type="checkbox" ${exempt?'checked':''} onchange="toggleSponsorExempt(${r.id},${p.id},this.checked)" />
-          <span>본인 몫 면제</span>
-        </label>`:''}
-      </div>`;
-    }).join('');
+  const exempt=r.sponsorExempt[p.id]||false;
+  const hasSponsor=(r.sponsor[p.id]||0)>0;
+  return `<div class="sponsor-item">
+    <div class="sponsor-name">${makeAvatar(p,16,8)}${p.name}</div>
+    <input type="number" placeholder="0원" value="${r.sponsor[p.id]||''}" min="0" step="1000"
+      oninput="updateSponsor(${r.id},${p.id},this.value)" inputmode="numeric" />
+    <label class="sponsor-exempt" style="opacity:${hasSponsor?1:0.3};">
+      <input type="checkbox" ${exempt?'checked':''} ${hasSponsor?'':'disabled'}
+        onchange="toggleSponsorExempt(${r.id},${p.id},this.checked)" />
+      <span>본인 몫 면제</span>
+    </label>
+  </div>`;
+}).join('');
 
     const faceInputs=attendees.map(p=>`
       <div class="face-item">
