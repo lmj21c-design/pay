@@ -18,25 +18,22 @@ header h1 { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 10
 .header-row input[type="text"]:focus { border-color: #378ADD; background: #fff; }
 .date-selects { display: flex; gap: 4px; }
 .date-selects select { font-size: 12px; padding: 7px 6px; border-radius: 8px; border: 0.5px solid #d8d8d0; background: #f8f8f5; color: #1a1a1a; outline: none; cursor: pointer; -webkit-appearance: none; text-align: center; }
-.date-selects select:focus { border-color: #378ADD; }
-#sel-year { width: 72px; }
-#sel-month { width: 48px; }
-#sel-day { width: 48px; }
+#sel-year { width: 72px; } #sel-month { width: 48px; } #sel-day { width: 48px; }
 .container { padding: 16px; max-width: 480px; margin: 0 auto; }
 .section { margin-bottom: 20px; }
 .card { background: #fff; border-radius: 14px; border: 0.5px solid #e0e0d8; padding: 14px 16px; margin-bottom: 10px; }
 .sec-label { font-size: 11px; font-weight: 600; color: #999; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px; }
 .people-wrap { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 10px; }
 .chip { display: flex; align-items: center; gap: 5px; background: #f5f5f0; border: 0.5px solid #e0e0d8; border-radius: 20px; padding: 4px 10px 4px 6px; font-size: 13px; }
-.avatar { border-radius: 50%; font-size: 10px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.chip-remove { background: none; border: none; cursor: pointer; color: #bbb; font-size: 15px; line-height: 1; padding: 0 0 0 2px; display: flex; align-items: center; }
+.avatar { border-radius: 50%; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.chip-remove { background: none; border: none; cursor: pointer; color: #bbb; font-size: 15px; line-height: 1; padding: 0 0 0 2px; }
 .chip-remove:active { color: #e24b4a; }
 .input-row { display: flex; gap: 8px; }
 input[type="text"], input[type="number"], input[type="tel"] { border: 0.5px solid #d8d8d0; border-radius: 10px; padding: 10px 12px; font-size: 15px; background: #fafaf8; color: #1a1a1a; outline: none; width: 100%; -webkit-appearance: none; }
 input:focus { border-color: #378ADD; background: #fff; }
 input[type="number"] { text-align: right; }
 button.primary { background: #1a1a1a; color: #fff; border: none; border-radius: 10px; padding: 10px 16px; font-size: 15px; font-weight: 500; cursor: pointer; white-space: nowrap; flex-shrink: 0; }
-button.primary:active { opacity: 0.8; transform: scale(0.97); }
+button.primary:active { opacity: 0.8; }
 .round-card { background: #fff; border-radius: 12px; border: 0.5px solid #e0e0d8; margin-bottom: 8px; overflow: hidden; }
 .round-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: 0.5px solid #f0f0e8; }
 .round-title { font-size: 14px; font-weight: 600; color: #1a1a1a; }
@@ -53,11 +50,19 @@ button.primary:active { opacity: 0.8; transform: scale(0.97); }
 .item-del:active { color: #e24b4a; }
 .add-link { background: none; border: none; color: #378ADD; font-size: 12px; cursor: pointer; padding: 2px 0; margin-top: 2px; }
 .add-round-btn { width: 100%; background: #f8f8f5; border: 0.5px dashed #c8c8c0; border-radius: 10px; padding: 10px; font-size: 13px; color: #999; cursor: pointer; }
-.add-round-btn:active { background: #f0f0ea; }
+.sub-section { background: #f8f8f5; border-radius: 10px; padding: 10px 12px; margin-top: 10px; }
+.sub-label { font-size: 11px; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
+.sub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 6px; }
+.sponsor-item { background: #fffbf0; border: 0.5px solid #f5d88a; border-radius: 8px; padding: 7px 9px; display: flex; flex-direction: column; gap: 4px; }
+.sponsor-name { font-size: 11px; color: #85560B; display: flex; align-items: center; gap: 4px; font-weight: 500; }
+.sponsor-item input[type="number"] { background: #fff; border-color: #e8cfa0; font-size: 13px; padding: 6px 8px; }
+.sponsor-exempt { display: flex; align-items: center; gap: 5px; margin-top: 2px; cursor: pointer; }
+.sponsor-exempt input[type="checkbox"] { width: 14px; height: 14px; accent-color: #85560B; cursor: pointer; flex-shrink: 0; }
+.sponsor-exempt span { font-size: 11px; color: #85560B; }
+.face-item { background: #f0f7ff; border: 0.5px solid #b5d4f4; border-radius: 8px; padding: 7px 9px; display: flex; flex-direction: column; gap: 3px; }
+.face-name { font-size: 11px; color: #185FA5; display: flex; align-items: center; gap: 4px; font-weight: 500; }
+.face-item input { background: #fff; border-color: #b5d4f4; font-size: 13px; padding: 6px 8px; }
 .two-col { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
-.sponsor-item { background: #fffbf0; border: 0.5px solid #f5d88a; border-radius: 10px; padding: 9px 11px; display: flex; flex-direction: column; gap: 4px; }
-.sponsor-name { font-size: 12px; color: #85560B; display: flex; align-items: center; gap: 5px; font-weight: 500; }
-.sponsor-item input { background: #fff; border-color: #e8cfa0; }
 .paid-item { background: #f8f8f5; border-radius: 10px; padding: 9px 11px; display: flex; flex-direction: column; gap: 4px; }
 .paid-name { font-size: 12px; color: #666; display: flex; align-items: center; gap: 5px; }
 .acc-row { display: grid; grid-template-columns: 76px 1fr; gap: 8px; align-items: center; margin-bottom: 8px; }
@@ -74,9 +79,11 @@ button.primary:active { opacity: 0.8; transform: scale(0.97); }
 .rr-label { font-size: 10px; font-weight: 600; color: #aaa; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
 .rr-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 0.5px solid #f0f0e8; font-size: 13px; }
 .rr-row:last-child { border-bottom: none; }
-.rr-name { display: flex; align-items: center; gap: 7px; color: #1a1a1a; }
-.rr-amt { font-weight: 600; }
-.sponsor-note { font-size: 11px; color: #85560B; margin-bottom: 6px; background: #fffbf0; border-radius: 6px; padding: 4px 8px; }
+.rr-name { display: flex; align-items: center; gap: 6px; color: #1a1a1a; flex-wrap: wrap; }
+.rr-amt { font-weight: 600; white-space: nowrap; }
+.note { font-size: 11px; border-radius: 6px; padding: 4px 8px; margin-bottom: 6px; }
+.note-yellow { background: #fffbf0; color: #85560B; }
+.note-blue { background: #f0f7ff; color: #185FA5; }
 .balance-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; margin-top: 10px; }
 .bal-card { border-radius: 10px; padding: 9px 11px; }
 .bal-card.pos { background: #eaf3de; } .bal-card.neg { background: #fcebeb; } .bal-card.zero { background: #f5f5f0; }
@@ -98,7 +105,7 @@ button.primary:active { opacity: 0.8; transform: scale(0.97); }
 .acc-display .acd-bank { font-size: 11px; color: #aaa; margin-top: 1px; }
 .acc-display .acd-num { font-size: 16px; font-weight: 700; color: #1a1a1a; margin-top: 3px; letter-spacing: 0.02em; }
 .share-btn { width: 100%; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; border: none; background: #FEE500; color: #3C1E1E; margin-top: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; }
-.share-btn:active { opacity: 0.85; transform: scale(0.98); }
+.share-btn:active { opacity: 0.85; }
 .empty { text-align: center; padding: 20px; color: #bbb; font-size: 13px; line-height: 1.6; }
 .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 100; align-items: center; justify-content: center; }
 .lightbox.open { display: flex; }
@@ -122,7 +129,6 @@ button.primary:active { opacity: 0.8; transform: scale(0.97); }
 
 <div class="container">
 
-  <!-- 인원 -->
   <div class="section">
     <div class="sec-label">참여 인원</div>
     <div class="card">
@@ -149,14 +155,12 @@ button.primary:active { opacity: 0.8; transform: scale(0.97); }
     </div>
   </div>
 
-  <!-- 차수 -->
   <div class="section">
     <div class="sec-label">차수별 정산</div>
     <div id="rounds-list"></div>
     <button class="add-round-btn" onclick="addRound()">＋ 차수 추가</button>
   </div>
 
-  <!-- 영수증 -->
   <div class="section">
     <div class="sec-label">영수증 첨부 <span style="font-weight:400;color:#bbb;font-size:10px;">공유 이미지 하단에 포함</span></div>
     <div class="card">
@@ -170,15 +174,6 @@ button.primary:active { opacity: 0.8; transform: scale(0.97); }
     </div>
   </div>
 
-  <!-- 찬조 -->
-  <div class="section">
-    <div class="sec-label">찬조 <span style="font-weight:400;color:#bbb;font-size:10px;">총액에서 먼저 차감</span></div>
-    <div class="two-col" id="sponsor-grid">
-      <div class="empty" style="grid-column:1/-1;padding:10px;">인원을 먼저 추가해 주세요.</div>
-    </div>
-  </div>
-
-  <!-- 실납부 -->
   <div class="section">
     <div class="sec-label">실제 납부 금액 <span id="total-summary" style="font-weight:400;color:#aaa;font-size:10px;"></span></div>
     <div class="two-col" id="paid-grid">
@@ -186,14 +181,12 @@ button.primary:active { opacity: 0.8; transform: scale(0.97); }
     </div>
   </div>
 
-  <!-- 계좌 -->
   <div class="section">
     <div class="sec-label">계좌 정보 <span style="font-weight:400;color:#bbb;font-size:10px;">공유 이미지에 포함</span></div>
     <div id="account-list"></div>
     <button onclick="addAccount()" style="width:100%;background:#f8f8f5;border:0.5px dashed #c8c8c0;border-radius:10px;padding:10px;font-size:13px;color:#999;cursor:pointer;">＋ 계좌 추가</button>
   </div>
 
-  <!-- 결과 -->
   <div class="section">
     <div class="sec-label">최종 정산 결과</div>
     <div id="result-area"><div class="empty">인원과 금액을 입력하면<br>결과가 나타납니다.</div></div>
@@ -214,41 +207,51 @@ button.primary:active { opacity: 0.8; transform: scale(0.97); }
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
-const COLORS = [
+const COLORS=[
   {bg:'#E6F1FB',text:'#185FA5'},{bg:'#E1F5EE',text:'#0F6E56'},
   {bg:'#FAECE7',text:'#993C1D'},{bg:'#EEEDFE',text:'#534AB7'},
   {bg:'#FBEAF0',text:'#993556'},{bg:'#FAEEDA',text:'#854F0B'},
   {bg:'#EAF3DE',text:'#3B6D11'},{bg:'#FCEBEB',text:'#A32D2D'},
 ];
-let people=[], rounds=[], paidMap={}, sponsorMap={}, receipts=[], accounts=[];
+let people=[], rounds=[], paidMap={}, receipts=[], accounts=[];
 let pId=0, rId=0, iId=0, rcId=0, acId=0;
 let currentType='normal', currentRatio=1;
 
-function gc(i){ return COLORS[i%COLORS.length]; }
-function ini(n){ return n.slice(0,2).toUpperCase(); }
-function pidx(id){ return people.findIndex(p=>p.id===id); }
+function gc(i){return COLORS[i%COLORS.length];}
+function nameTag(name){
+  if(!name) return '?';
+  const isKorean=/[가-힣]/.test(name);
+  if(isKorean && name.length>=2) return name.slice(1);
+  return name.slice(0,2).toUpperCase();
+}
+function pidx(id){return people.findIndex(p=>p.id===id);}
 
-/* 날짜 드롭다운 초기화 */
+function makeAvatar(p, size=22, fontSize=10){
+  const c=gc(pidx(p.id));
+  const tag=nameTag(p.name);
+  const fs=tag.length>=3?Math.max(7,fontSize-2):fontSize;
+  return `<div class="avatar" style="background:${c.bg};color:${c.text};width:${size}px;height:${size}px;font-size:${fs}px;">${tag}</div>`;
+}
+
 function initDateSelects(){
-  const now = new Date();
-  const ySel = document.getElementById('sel-year');
-  const mSel = document.getElementById('sel-month');
-  const dSel = document.getElementById('sel-day');
-  const curY = now.getFullYear();
-  for(let y=curY-2; y<=curY+2; y++){
+  const now=new Date();
+  const ySel=document.getElementById('sel-year');
+  const mSel=document.getElementById('sel-month');
+  const curY=now.getFullYear();
+  for(let y=curY-2;y<=curY+2;y++){
     const o=document.createElement('option');
     o.value=y; o.textContent=y+'년';
     if(y===curY) o.selected=true;
     ySel.appendChild(o);
   }
-  for(let m=1; m<=12; m++){
+  for(let m=1;m<=12;m++){
     const o=document.createElement('option');
     o.value=m; o.textContent=m+'월';
     if(m===now.getMonth()+1) o.selected=true;
     mSel.appendChild(o);
   }
   updateDaySelect();
-  dSel.value=now.getDate();
+  document.getElementById('sel-day').value=now.getDate();
 }
 function updateDaySelect(){
   const y=parseInt(document.getElementById('sel-year').value);
@@ -257,18 +260,15 @@ function updateDaySelect(){
   const cur=dSel.value;
   const days=new Date(y,m,0).getDate();
   dSel.innerHTML='';
-  for(let d=1; d<=days; d++){
+  for(let d=1;d<=days;d++){
     const o=document.createElement('option');
     o.value=d; o.textContent=d+'일';
     dSel.appendChild(o);
   }
-  if(cur && cur<=days) dSel.value=cur;
+  if(cur&&cur<=days) dSel.value=cur;
 }
 function getDateStr(){
-  const y=document.getElementById('sel-year').value;
-  const m=document.getElementById('sel-month').value;
-  const d=document.getElementById('sel-day').value;
-  return `${y}년 ${m}월 ${d}일`;
+  return `${document.getElementById('sel-year').value}년 ${document.getElementById('sel-month').value}월 ${document.getElementById('sel-day').value}일`;
 }
 
 function setType(type){
@@ -295,13 +295,14 @@ function addPerson(){
   if(currentType==='companion'&&!guardianId){alert('책임자를 선택해 주세요!');return;}
   const p={id:pId++,name,type:currentType,ratio:currentRatio,guardianId};
   people.push(p);
-  paidMap[p.id]=0; sponsorMap[p.id]=0;
+  paidMap[p.id]=0;
+  rounds.forEach(r=>{ r.attendees[p.id]=true; r.sponsor[p.id]=0; r.sponsorExempt[p.id]=false; r.face[p.id]=0; });
   inp.value=''; renderAll();
 }
 function removePerson(id){
   people=people.filter(p=>p.id!==id&&p.guardianId!==id);
-  delete paidMap[id]; delete sponsorMap[id];
-  rounds.forEach(r=>{ delete r.attendees[id]; });
+  delete paidMap[id];
+  rounds.forEach(r=>{ delete r.attendees[id]; delete r.sponsor[id]; delete r.sponsorExempt[id]; delete r.face[id]; });
   renderAll();
 }
 
@@ -331,9 +332,9 @@ function renderAccounts(){
 }
 
 function addRound(){
-  const att={};
-  people.forEach(p=>{ att[p.id]=true; });
-  rounds.push({id:rId++,items:[],attendees:att});
+  const att={}, spon={}, sponsorExempt={}, face={};
+  people.forEach(p=>{ att[p.id]=true; spon[p.id]=0; sponsorExempt[p.id]=false; face[p.id]=0; });
+  rounds.push({id:rId++,items:[],attendees:att,sponsor:spon,sponsorExempt:sponsorExempt,face:face});
   renderRounds(); calculate();
 }
 function removeRound(id){ rounds=rounds.filter(r=>r.id!==id); renderRounds(); calculate(); }
@@ -354,9 +355,19 @@ function updateItem(rid,iid,field,val){
   const it=r&&r.items.find(it=>it.id===iid);
   if(it){ it[field]=val; calculate(); }
 }
-
 function updatePaid(pid,val){ paidMap[pid]=parseFloat(val)||0; calculate(); }
-function updateSponsor(pid,val){ sponsorMap[pid]=parseFloat(val)||0; calculate(); }
+function updateSponsor(rid,pid,val){
+  const r=rounds.find(r=>r.id===rid);
+  if(r){ r.sponsor[pid]=parseFloat(val)||0; calculate(); }
+}
+function toggleSponsorExempt(rid,pid,checked){
+  const r=rounds.find(r=>r.id===rid);
+  if(r){ r.sponsorExempt[pid]=checked; calculate(); }
+}
+function updateFace(rid,pid,val){
+  const r=rounds.find(r=>r.id===rid);
+  if(r){ r.face[pid]=parseFloat(val)||0; calculate(); }
+}
 
 function addReceipts(input){
   Array.from(input.files).forEach(file=>{
@@ -372,14 +383,13 @@ function closeLightbox(){ document.getElementById('lightbox').classList.remove('
 
 function renderPeople(){
   document.getElementById('people-wrap').innerHTML=people.map((p,i)=>{
-    const c=gc(i);
     const guardian=p.guardianId!=null?people.find(g=>g.id===p.guardianId):null;
     const tags=[
       p.type==='companion'?`<span style="font-size:10px;background:#fffbf0;color:#85560B;border-radius:6px;padding:1px 6px;border:0.5px solid #f5d88a;">동반→${guardian?guardian.name:''}</span>`:'',
       p.ratio===0.5?`<span style="font-size:10px;background:#e6f1fb;color:#185FA5;border-radius:6px;padding:1px 6px;border:0.5px solid #b5d4f4;">반값</span>`:'',
     ].filter(Boolean).join(' ');
     return `<div class="chip">
-      <div class="avatar" style="background:${c.bg};color:${c.text};width:22px;height:22px;">${ini(p.name)}</div>
+      ${makeAvatar(p,22,10)}
       ${p.name} ${tags}
       <button class="chip-remove" onclick="removePerson(${p.id})">×</button>
     </div>`;
@@ -407,21 +417,46 @@ function renderReceipts(){
 
 function renderRounds(){
   document.getElementById('rounds-list').innerHTML=rounds.map((r,ri)=>{
-    const atBtns=people.map((p,i)=>{
-      const c=gc(i); const on=r.attendees[p.id];
+    const atBtns=people.map(p=>{
+      const c=gc(pidx(p.id)); const on=r.attendees[p.id];
+      const tag=nameTag(p.name);
+      const fs=tag.length>=3?7:9;
       return `<button class="att-btn ${on?'on':''}" onclick="toggleAttendee(${r.id},${p.id})">
-        <div class="av2" style="background:${on?c.bg:'#ececec'};color:${on?c.text:'#aaa'}">${ini(p.name)}</div>
+        <div class="av2" style="background:${on?c.bg:'#ececec'};color:${on?c.text:'#aaa'};font-size:${fs}px;">${tag}</div>
         ${p.name}${on?'':' ✕'}
       </button>`;
     }).join('');
     const itemRows=r.items.map(it=>`
       <div class="item-row">
-        <input type="text" placeholder="항목명" value="${it.name}" oninput="updateItem(${r.id},${it.id},'name',this.value)" style="font-size:13px;" />
+        <input type="text" placeholder="품목명" value="${it.name}" oninput="updateItem(${r.id},${it.id},'name',this.value)" style="font-size:13px;" />
         <input type="number" placeholder="금액" value="${it.amount}" min="0" step="100" oninput="updateItem(${r.id},${it.id},'amount',this.value)" style="font-size:13px;" inputmode="numeric" />
         <button class="item-del" onclick="removeItem(${r.id},${it.id})">×</button>
       </div>`).join('');
     const total=r.items.reduce((s,it)=>s+(parseFloat(it.amount)||0),0);
     const cnt=Object.values(r.attendees).filter(Boolean).length;
+    const attendees=people.filter(p=>r.attendees[p.id]);
+
+    const sponsorInputs=attendees.map(p=>{
+      const exempt=r.sponsorExempt[p.id]||false;
+      const hasSponsor=(r.sponsor[p.id]||0)>0;
+      return `<div class="sponsor-item">
+        <div class="sponsor-name">${makeAvatar(p,16,8)}${p.name}</div>
+        <input type="number" placeholder="0원" value="${r.sponsor[p.id]||''}" min="0" step="1000"
+          oninput="updateSponsor(${r.id},${p.id},this.value)" inputmode="numeric" />
+        ${hasSponsor?`<label class="sponsor-exempt">
+          <input type="checkbox" ${exempt?'checked':''} onchange="toggleSponsorExempt(${r.id},${p.id},this.checked)" />
+          <span>본인 몫 면제</span>
+        </label>`:''}
+      </div>`;
+    }).join('');
+
+    const faceInputs=attendees.map(p=>`
+      <div class="face-item">
+        <div class="face-name">${makeAvatar(p,16,8)}${p.name}</div>
+        <input type="number" placeholder="0원" value="${r.face[p.id]||''}" min="0" step="1000"
+          oninput="updateFace(${r.id},${p.id},this.value)" inputmode="numeric" />
+      </div>`).join('');
+
     return `<div class="round-card">
       <div class="round-header">
         <span class="round-title">${ri+1}차<span class="round-meta"> ${cnt}명${total?' · '+total.toLocaleString()+'원':''}</span></span>
@@ -430,28 +465,27 @@ function renderRounds(){
       <div class="round-body">
         <div style="font-size:11px;color:#aaa;margin-bottom:6px;font-weight:600;">참석 여부</div>
         <div class="att-wrap">${people.length?atBtns:'<span style="font-size:12px;color:#bbb;">인원을 먼저 추가해 주세요.</span>'}</div>
-        <div style="font-size:11px;color:#aaa;margin-bottom:6px;font-weight:600;">항목</div>
+        <div style="font-size:11px;color:#aaa;margin-bottom:6px;font-weight:600;">품목</div>
         ${itemRows}
-        <button class="add-link" onclick="addItem(${r.id})">＋ 항목 추가</button>
+        <button class="add-link" onclick="addItem(${r.id})">＋ 품목 추가</button>
+        <div class="sub-section">
+          <div class="sub-label" style="color:#85560B;">🎁 찬조 <span style="font-size:10px;font-weight:400;color:#aaa;">금액 입력 후 "본인 몫 면제" 체크 가능</span></div>
+          <div class="sub-grid">${attendees.length?sponsorInputs:'<span style="font-size:12px;color:#aaa;">참석자를 선택해 주세요.</span>'}</div>
+        </div>
+        <div class="sub-section" style="margin-top:8px;">
+          <div class="sub-label" style="color:#185FA5;">😶 얼굴마담 <span style="font-size:10px;font-weight:400;color:#aaa;">고정 금액만 내는 사람</span></div>
+          <div class="sub-grid">${attendees.length?faceInputs:'<span style="font-size:12px;color:#aaa;">참석자를 선택해 주세요.</span>'}</div>
+        </div>
       </div>
     </div>`;
   }).join('');
 
-  document.getElementById('sponsor-grid').innerHTML=people.length?people.map((p,i)=>{
-    const c=gc(i);
-    return `<div class="sponsor-item">
-      <div class="sponsor-name"><div class="avatar" style="background:${c.bg};color:${c.text};width:18px;height:18px;font-size:9px;">${ini(p.name)}</div>${p.name}</div>
-      <input type="number" placeholder="0원" value="${sponsorMap[p.id]||''}" min="0" step="1000" oninput="updateSponsor(${p.id},this.value)" inputmode="numeric" />
-    </div>`;
-  }).join(''):'<div class="empty" style="grid-column:1/-1;padding:10px;">인원을 먼저 추가해 주세요.</div>';
-
-  document.getElementById('paid-grid').innerHTML=people.map((p,i)=>{
-    const c=gc(i);
-    return `<div class="paid-item">
-      <div class="paid-name"><div class="avatar" style="background:${c.bg};color:${c.text};width:18px;height:18px;font-size:9px;">${ini(p.name)}</div>${p.name}</div>
-      <input type="number" placeholder="0원" value="${paidMap[p.id]||''}" min="0" step="1000" oninput="updatePaid(${p.id},this.value)" inputmode="numeric" />
-    </div>`;
-  }).join('');
+  document.getElementById('paid-grid').innerHTML=people.filter(p=>p.type!=='companion').map(p=>`
+    <div class="paid-item">
+      <div class="paid-name">${makeAvatar(p,18,9)}${p.name}</div>
+      <input type="number" placeholder="0원" value="${paidMap[p.id]||''}" min="0" step="1000"
+        oninput="updatePaid(${p.id},this.value)" inputmode="numeric" />
+    </div>`).join('');
 }
 
 function calculate(){
@@ -461,7 +495,7 @@ function calculate(){
     area.innerHTML='<div class="empty">인원과 차수를 추가하면<br>결과가 나타납니다.</div>';
     shareBtn.style.display='none'; return;
   }
-  const totalSponsor=people.reduce((s,p)=>s+(sponsorMap[p.id]||0),0);
+
   const shouldPay={};
   people.forEach(p=>{ shouldPay[p.id]=0; });
   let grandTotal=0, roundsHtml='';
@@ -472,10 +506,32 @@ function calculate(){
     grandTotal+=rawTotal;
     const attendees=people.filter(p=>r.attendees[p.id]);
     if(!attendees.length) return;
-    const totalUnits=attendees.reduce((s,p)=>s+(p.ratio||1),0);
+
+    const totalSponsor=attendees.reduce((s,p)=>s+(r.sponsor[p.id]||0),0);
+    const totalFace=attendees.reduce((s,p)=>s+(r.face[p.id]||0),0);
     const afterSponsor=Math.max(0,rawTotal-totalSponsor);
-    const perUnit=afterSponsor/totalUnits;
+    const afterFace=Math.max(0,afterSponsor-totalFace);
+
+    // 얼굴마담 배정
     attendees.forEach(p=>{
+      if(r.face[p.id]>0){
+        const amt=r.face[p.id];
+        if(p.type==='companion'&&p.guardianId!=null){
+          shouldPay[p.guardianId]=(shouldPay[p.guardianId]||0)+amt;
+        } else {
+          shouldPay[p.id]=(shouldPay[p.id]||0)+amt;
+        }
+      }
+    });
+
+    // 나머지 분배: 얼굴마담 아닌 사람 + 찬조 면제자도 제외
+    const normalAttendees=attendees.filter(p=>
+      !(r.face[p.id]>0) && !(r.sponsorExempt[p.id] && r.sponsor[p.id]>0)
+    );
+    const totalUnits=normalAttendees.reduce((s,p)=>s+(p.ratio||1),0);
+    const perUnit=totalUnits>0?afterFace/totalUnits:0;
+
+    normalAttendees.forEach(p=>{
       const amt=Math.ceil(perUnit*(p.ratio||1));
       if(p.type==='companion'&&p.guardianId!=null){
         shouldPay[p.guardianId]=(shouldPay[p.guardianId]||0)+amt;
@@ -483,49 +539,63 @@ function calculate(){
         shouldPay[p.id]=(shouldPay[p.id]||0)+amt;
       }
     });
+
     const absent=people.filter(p=>!r.attendees[p.id]);
-    const sponsorLine=totalSponsor>0?`<div class="sponsor-note">찬조 ${totalSponsor.toLocaleString()}원 차감 → 실부담 ${afterSponsor.toLocaleString()}원</div>`:'';
+    const sponsorLine=totalSponsor>0?`<div class="note note-yellow">찬조 ${totalSponsor.toLocaleString()}원 차감 → 실부담 ${afterSponsor.toLocaleString()}원</div>`:'';
+    const faceLine=totalFace>0?`<div class="note note-blue">얼굴마담 ${totalFace.toLocaleString()}원 차감 → 나머지 ${afterFace.toLocaleString()}원 분배</div>`:'';
+    const itemNames=r.items.filter(it=>it.name).map(it=>it.name).join(', ');
+    const roundLabel=`${ri+1}차${itemNames?' · '+itemNames:''} · ${rawTotal.toLocaleString()}원`;
+
     const rows=attendees.filter(p=>p.type!=='companion').map(p=>{
-      const c=gc(pidx(p.id));
-      const myCompanions=attendees.filter(cp=>cp.type==='companion'&&cp.guardianId===p.id);
-      const myAmt=Math.ceil(perUnit*(p.ratio||1));
-      const companionAmt=myCompanions.reduce((s,cp)=>s+Math.ceil(perUnit*(cp.ratio||1)),0);
-      const total=myAmt+companionAmt;
+      const isFace=r.face[p.id]>0;
+      const isExempt=r.sponsorExempt[p.id]&&r.sponsor[p.id]>0;
+      const myCompanions=attendees.filter(cp=>cp.guardianId===p.id);
+      const myCompanionFace=myCompanions.filter(cp=>r.face[cp.id]>0).reduce((s,cp)=>s+(r.face[cp.id]||0),0);
+      const myCompanionNormal=myCompanions.filter(cp=>!(r.face[cp.id]>0)&&!(r.sponsorExempt[cp.id]&&r.sponsor[cp.id]>0)).reduce((s,cp)=>s+Math.ceil(perUnit*(cp.ratio||1)),0);
+      const myAmt=isFace?(r.face[p.id]):isExempt?0:Math.ceil(perUnit*(p.ratio||1));
+      const companionAmt=myCompanionFace+myCompanionNormal;
+      const totalAmt=myAmt+companionAmt;
+
+      const badges=[
+        isFace?`<span style="font-size:10px;background:#f0f7ff;color:#185FA5;border-radius:4px;padding:1px 5px;border:0.5px solid #b5d4f4;">얼굴마담</span>`:'',
+        r.sponsor[p.id]>0?`<span style="font-size:10px;background:#fffbf0;color:#85560B;border-radius:4px;padding:1px 5px;border:0.5px solid #f5d88a;">찬조${isExempt?' · 면제':''}</span>`:'',
+      ].filter(Boolean).join(' ');
+
       return `<div class="rr-row" style="flex-direction:column;align-items:stretch;">
         <div style="display:flex;justify-content:space-between;align-items:center;">
-          <div class="rr-name"><div class="avatar" style="background:${c.bg};color:${c.text};width:20px;height:20px;font-size:9px;">${ini(p.name)}</div>${p.name}</div>
-          <div class="rr-amt">${total.toLocaleString()}원</div>
+          <div class="rr-name">
+            ${makeAvatar(p,20,9)}
+            ${p.name}
+            ${badges}
+          </div>
+          <div class="rr-amt">${totalAmt.toLocaleString()}원</div>
         </div>
-        ${myCompanions.length?`<div style="font-size:11px;color:#aaa;margin-left:27px;margin-top:2px;">본인 ${myAmt.toLocaleString()}원 + 동반 ${companionAmt.toLocaleString()}원</div>`:''}
+        ${companionAmt>0?`<div style="font-size:11px;color:#aaa;margin-left:27px;margin-top:2px;">본인 ${myAmt.toLocaleString()}원 + 동반 ${companionAmt.toLocaleString()}원</div>`:''}
       </div>`;
     }).join('');
+
     const absentBadges=absent.map(p=>`<span style="font-size:11px;background:#f5f5f0;color:#aaa;border-radius:6px;padding:2px 7px;border:0.5px solid #e0e0d8;">${p.name} 불참</span>`).join(' ');
     roundsHtml+=`<div class="result-block">
-      <div class="rr-label">${ri+1}차 · ${rawTotal.toLocaleString()}원</div>
-      ${sponsorLine}${rows}
+      <div class="rr-label">${roundLabel}</div>
+      ${sponsorLine}${faceLine}${rows}
       ${absent.length?`<div style="margin-top:6px;display:flex;gap:5px;flex-wrap:wrap;">${absentBadges}</div>`:''}
     </div>`;
   });
 
   if(!roundsHtml){
-    area.innerHTML='<div class="empty">항목 금액을 입력해 주세요.</div>';
+    area.innerHTML='<div class="empty">품목 금액을 입력해 주세요.</div>';
     shareBtn.style.display='none'; return;
   }
 
-  const sponsorBadges=people.filter(p=>sponsorMap[p.id]>0).map(p=>{
-    const c=gc(pidx(p.id));
-    return `<span style="font-size:11px;background:#fffbf0;color:#85560B;border-radius:8px;padding:3px 8px;border:0.5px solid #f5d88a;display:inline-flex;align-items:center;gap:4px;"><div class="avatar" style="background:${c.bg};color:${c.text};width:14px;height:14px;font-size:8px;display:inline-flex;">${ini(p.name)}</div>${p.name} ${sponsorMap[p.id].toLocaleString()}원</span>`;
-  }).join(' ');
-
   const balance={};
-  people.forEach(p=>{ balance[p.id]=(paidMap[p.id]||0)-shouldPay[p.id]; });
+  people.filter(p=>p.type!=='companion').forEach(p=>{ balance[p.id]=(paidMap[p.id]||0)-shouldPay[p.id]; });
 
   const balanceCards=people.filter(p=>p.type!=='companion').map(p=>{
     const c=gc(pidx(p.id)); const b=balance[p.id];
     const cls=b>0?'pos':b<0?'neg':'zero';
     const desc=b>0?`${b.toLocaleString()}원 돌려받음`:b<0?`${Math.abs(b).toLocaleString()}원 더 내야 함`:'정산 완료';
     return `<div class="bal-card ${cls}">
-      <div class="bal-name ${cls}"><div class="avatar" style="background:${c.bg};color:${c.text};width:18px;height:18px;font-size:9px;">${ini(p.name)}</div>${p.name}</div>
+      <div class="bal-name ${cls}">${makeAvatar(p,18,9)}${p.name}</div>
       <div class="bal-amt ${cls}">${Math.abs(b).toLocaleString()}원</div>
       <div class="bal-desc ${cls}">${desc}</div>
     </div>`;
@@ -554,11 +624,12 @@ function calculate(){
   const transferHtml=transfers.length?`<div class="transfer-card">
     <div class="transfer-title">송금 방법</div>
     ${transfers.map(t=>{
-      const fc=gc(pidx(t.fromId)); const tc=gc(pidx(t.toId));
+      const fp=people.find(p=>p.id===t.fromId);
+      const tp=people.find(p=>p.id===t.toId);
       return `<div class="transfer-row">
-        <div class="avatar" style="background:${fc.bg};color:${fc.text};width:20px;height:20px;font-size:9px;">${ini(t.from)}</div>${t.from}
+        ${fp?makeAvatar(fp,20,9):''}${t.from}
         <span class="transfer-arrow">→</span>
-        <div class="avatar" style="background:${tc.bg};color:${tc.text};width:20px;height:20px;font-size:9px;">${ini(t.to)}</div>${t.to}
+        ${tp?makeAvatar(tp,20,9):''}${t.to}
         <span class="transfer-amount">${t.amt.toLocaleString()}원</span>
       </div>`;
     }).join('')}
@@ -567,8 +638,6 @@ function calculate(){
 
   area.innerHTML=`${roundsHtml}
     <div style="margin-top:12px;">
-      <div class="sec-label">찬조 내역</div>
-      ${totalSponsor>0?`<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">${sponsorBadges}</div>`:'<div style="font-size:12px;color:#ccc;margin-bottom:10px;">찬조 없음</div>'}
       <div class="sec-label">잔액 현황</div>
       <div class="balance-grid">${balanceCards}</div>
     </div>
@@ -578,9 +647,10 @@ function calculate(){
 
   const totalEl=document.getElementById('total-summary');
   if(totalEl){
-    const totalPaid=people.reduce((s,p)=>s+(paidMap[p.id]||0),0);
-    const remaining=grandTotal-totalSponsor-totalPaid;
-    totalEl.textContent=`— 총 ${grandTotal.toLocaleString()}원 / 찬조 ${totalSponsor.toLocaleString()}원 / 납부 ${totalPaid.toLocaleString()}원 / 남은 ${remaining.toLocaleString()}원`;
+    const totalPaid=people.filter(p=>p.type!=='companion').reduce((s,p)=>s+(paidMap[p.id]||0),0);
+    const totalSponsorAll=rounds.reduce((s,r)=>s+people.reduce((ss,p)=>ss+(r.sponsor[p.id]||0),0),0);
+    const remaining=grandTotal-totalSponsorAll-totalPaid;
+    totalEl.textContent=`— 총 ${grandTotal.toLocaleString()}원 / 납부 ${totalPaid.toLocaleString()}원 / 남은 ${remaining.toLocaleString()}원`;
   }
   saveData();
 }
@@ -592,7 +662,7 @@ function saveData(){
   const mYear=document.getElementById('sel-year').value;
   const mMonth=document.getElementById('sel-month').value;
   const mDay=document.getElementById('sel-day').value;
-  localStorage.setItem('dutchpay',JSON.stringify({people,rounds,paidMap,sponsorMap,accounts,pId,rId,iId,acId,mName,mYear,mMonth,mDay}));
+  localStorage.setItem('dutchpay',JSON.stringify({people,rounds,paidMap,accounts,pId,rId,iId,acId,mName,mYear,mMonth,mDay}));
 }
 
 function loadData(){
@@ -600,9 +670,8 @@ function loadData(){
   if(!saved) return;
   const d=JSON.parse(saved);
   people=(d.people||[]).map(p=>({type:'normal',ratio:1,guardianId:null,...p}));
-  rounds=d.rounds||[];
+  rounds=(d.rounds||[]).map(r=>({sponsor:{},sponsorExempt:{},face:{},...r,attendees:r.attendees||{}}));
   paidMap=d.paidMap||{};
-  sponsorMap=d.sponsorMap||{};
   accounts=d.accounts||[];
   pId=d.pId||0; rId=d.rId||0; iId=d.iId||0; acId=d.acId||0;
   if(d.mName) document.getElementById('meeting-name').value=d.mName;
@@ -614,7 +683,7 @@ function loadData(){
 
 function resetAll(){
   if(!confirm('전체 초기화할까요? 모든 데이터가 삭제됩니다.')) return;
-  people=[]; rounds=[]; paidMap={}; sponsorMap={}; accounts=[];
+  people=[]; rounds=[]; paidMap={}; accounts=[];
   pId=0; rId=0; iId=0; acId=0;
   document.getElementById('meeting-name').value='';
   const now=new Date();
@@ -632,13 +701,12 @@ async function shareResult(){
   btn.style.opacity='0.7';
   const resultEl=document.getElementById('result-area');
   const mName=document.getElementById('meeting-name').value.trim();
-  const dateStr=getDateStr();
   const wrapper=document.createElement('div');
   wrapper.style.cssText='position:fixed;left:-9999px;top:0;width:390px;padding:22px;background:#ffffff;font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#1a1a1a;';
   const hdr=document.createElement('div');
   hdr.style.cssText='margin-bottom:16px;';
   hdr.innerHTML=`<div style="font-size:20px;font-weight:700;color:#1a1a1a;">${mName||'더치페이 정산'}</div>
-    <div style="font-size:12px;color:#aaa;margin-top:2px;">${dateStr}</div>`;
+    <div style="font-size:12px;color:#aaa;margin-top:2px;">${getDateStr()}</div>`;
   wrapper.appendChild(hdr);
   const clone=resultEl.cloneNode(true);
   clone.querySelectorAll('button').forEach(b=>b.remove());
@@ -651,8 +719,7 @@ async function shareResult(){
     rgrid.style.cssText=`display:grid;grid-template-columns:repeat(${Math.min(receipts.length,3)},1fr);gap:8px;`;
     receipts.forEach(r=>{
       const img=document.createElement('img');
-      img.src=r.src;
-      img.style.cssText='width:100%;border-radius:8px;border:1px solid #eee;display:block;';
+      img.src=r.src; img.style.cssText='width:100%;border-radius:8px;border:1px solid #eee;display:block;';
       rgrid.appendChild(img);
     });
     rdiv.appendChild(rgrid);
@@ -672,8 +739,8 @@ async function shareResult(){
 }
 
 document.getElementById('name-input').addEventListener('keydown',e=>{ if(e.key==='Enter') addPerson(); });
-document.getElementById('sel-year').addEventListener('change', updateDaySelect);
-document.getElementById('sel-month').addEventListener('change', updateDaySelect);
+document.getElementById('sel-year').addEventListener('change',updateDaySelect);
+document.getElementById('sel-month').addEventListener('change',updateDaySelect);
 
 initDateSelects();
 loadData();
