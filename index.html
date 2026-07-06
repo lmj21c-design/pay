@@ -358,7 +358,7 @@ function updateItem(rid,iid,field,val){
 function updatePaid(pid,val){ paidMap[pid]=parseFloat(val)||0; calculate(); }
 function updateSponsor(rid,pid,val){
   const r=rounds.find(r=>r.id===rid);
-  if(r){ r.sponsor[pid]=parseFloat(val)||0; calculate(); }
+  if(r){ r.sponsor[pid]=parseFloat(val)||0; renderRounds(); calculate(); }
 }
 function toggleSponsorExempt(rid,pid,checked){
   const r=rounds.find(r=>r.id===rid);
