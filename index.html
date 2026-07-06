@@ -50,18 +50,27 @@ button.primary:active { opacity: 0.8; }
 .item-del:active { color: #e24b4a; }
 .add-link { background: none; border: none; color: #378ADD; font-size: 12px; cursor: pointer; padding: 2px 0; margin-top: 2px; }
 .add-round-btn { width: 100%; background: #f8f8f5; border: 0.5px dashed #c8c8c0; border-radius: 10px; padding: 10px; font-size: 13px; color: #999; cursor: pointer; }
-.sub-section { background: #f8f8f5; border-radius: 10px; padding: 10px 12px; margin-top: 10px; }
-.sub-label { font-size: 11px; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
-.sub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 6px; }
-.sponsor-item { background: #fffbf0; border: 0.5px solid #f5d88a; border-radius: 8px; padding: 7px 9px; display: flex; flex-direction: column; gap: 4px; }
-.sponsor-name { font-size: 11px; color: #85560B; display: flex; align-items: center; gap: 4px; font-weight: 500; }
-.sponsor-item input[type="number"] { background: #fff; border-color: #e8cfa0; font-size: 13px; padding: 6px 8px; }
-.sponsor-exempt { display: flex; align-items: center; gap: 5px; margin-top: 2px; cursor: pointer; }
-.sponsor-exempt input[type="checkbox"] { width: 14px; height: 14px; accent-color: #85560B; cursor: pointer; flex-shrink: 0; }
-.sponsor-exempt span { font-size: 11px; color: #85560B; }
-.face-item { background: #f0f7ff; border: 0.5px solid #b5d4f4; border-radius: 8px; padding: 7px 9px; display: flex; flex-direction: column; gap: 3px; }
+.face-sub { background: #f0f7ff; border: 0.5px solid #b5d4f4; border-radius: 10px; padding: 10px 12px; margin-top: 10px; }
+.face-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px,1fr)); gap: 6px; }
+.face-item { background: #fff; border: 0.5px solid #b5d4f4; border-radius: 8px; padding: 7px 9px; display: flex; flex-direction: column; gap: 3px; }
 .face-name { font-size: 11px; color: #185FA5; display: flex; align-items: center; gap: 4px; font-weight: 500; }
-.face-item input { background: #fff; border-color: #b5d4f4; font-size: 13px; padding: 6px 8px; }
+.face-item input { background: #f0f7ff; border-color: #b5d4f4; font-size: 13px; padding: 6px 8px; }
+.sponsor-card { background: #fffbf0; border: 0.5px solid #e8cfa0; border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; }
+.sponsor-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+.sponsor-info { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.sponsor-person-select { font-size: 13px; border: 0.5px solid #e8cfa0; border-radius: 8px; padding: 6px 10px; background: #fff; color: #1a1a1a; outline: none; width: 100%; -webkit-appearance: none; }
+.sponsor-amount-row { display: flex; align-items: center; gap: 6px; }
+.sponsor-amount-row input { font-size: 14px; padding: 7px 10px; border: 0.5px solid #e8cfa0; border-radius: 8px; background: #fff; color: #1a1a1a; text-align: right; flex: 1; }
+.sponsor-amount-row span { font-size: 13px; color: #85560B; font-weight: 500; white-space: nowrap; }
+.sponsor-del { background: none; border: none; color: #ccc; font-size: 18px; cursor: pointer; padding: 0; line-height: 1; flex-shrink: 0; }
+.exempt-section { border-top: 0.5px solid #f0d888; padding-top: 10px; }
+.exempt-label { font-size: 11px; color: #85560B; font-weight: 600; margin-bottom: 8px; }
+.exempt-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+.exempt-btn { padding: 7px 14px; border-radius: 8px; border: 1.5px solid #c8a050; background: #fff; font-size: 13px; font-weight: 600; color: #85560B; cursor: pointer; -webkit-appearance: none; min-width: 52px; text-align: center; }
+.exempt-btn.on { background: #85560B; color: #fff; border-color: #85560B; }
+.exempt-all-btn { padding: 7px 14px; border-radius: 8px; border: 1.5px solid #c8a050; background: #fff; font-size: 13px; font-weight: 700; color: #85560B; cursor: pointer; -webkit-appearance: none; }
+.exempt-all-btn.on { background: #4a2f06; color: #fff; border-color: #4a2f06; }
+.add-sponsor-btn { width: 100%; background: #fffbf0; border: 0.5px dashed #e8cfa0; border-radius: 10px; padding: 10px; font-size: 13px; color: #85560B; cursor: pointer; font-weight: 500; }
 .two-col { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
 .paid-item { background: #f8f8f5; border-radius: 10px; padding: 9px 11px; display: flex; flex-direction: column; gap: 4px; }
 .paid-name { font-size: 12px; color: #666; display: flex; align-items: center; gap: 5px; }
@@ -114,7 +123,6 @@ button.primary:active { opacity: 0.8; }
 </style>
 </head>
 <body>
-
 <header>
   <h1>더치페이 정산</h1>
   <div class="header-row">
@@ -126,7 +134,6 @@ button.primary:active { opacity: 0.8; }
     </div>
   </div>
 </header>
-
 <div class="container">
 
   <div class="section">
@@ -139,9 +146,7 @@ button.primary:active { opacity: 0.8; }
       </div>
       <div id="companion-options" style="display:none;margin-bottom:10px;">
         <div style="font-size:11px;color:#aaa;margin-bottom:4px;">책임자</div>
-        <select id="guardian-select" style="width:100%;border:0.5px solid #d8d8d0;border-radius:8px;padding:8px;font-size:13px;background:#fafaf8;color:#1a1a1a;margin-bottom:8px;">
-          <option value="">선택</option>
-        </select>
+        <select id="guardian-select" style="width:100%;border:0.5px solid #d8d8d0;border-radius:8px;padding:8px;font-size:13px;background:#fafaf8;color:#1a1a1a;margin-bottom:8px;"><option value="">선택</option></select>
         <div style="font-size:11px;color:#aaa;margin-bottom:4px;">비율</div>
         <div style="display:flex;gap:6px;margin-bottom:8px;">
           <button id="ratio-full" onclick="setRatio(1)" style="flex:1;padding:6px;border-radius:8px;border:0.5px solid #d8d8d0;background:#1a1a1a;color:#fff;font-size:12px;cursor:pointer;">1인분</button>
@@ -156,6 +161,12 @@ button.primary:active { opacity: 0.8; }
   </div>
 
   <div class="section">
+    <div class="sec-label">찬조 <span style="font-weight:400;color:#bbb;font-size:10px;">총액에서 차감 후 면제 차수 선택</span></div>
+    <div id="sponsor-list"></div>
+    <button class="add-sponsor-btn" onclick="addSponsor()">🎁 찬조 추가</button>
+  </div>
+
+  <div class="section">
     <div class="sec-label">차수별 정산</div>
     <div id="rounds-list"></div>
     <button class="add-round-btn" onclick="addRound()">＋ 차수 추가</button>
@@ -167,8 +178,7 @@ button.primary:active { opacity: 0.8; }
       <div class="receipt-grid" id="receipt-grid">
         <label class="receipt-add-btn">
           <input type="file" accept="image/*" multiple onchange="addReceipts(this)" />
-          <span class="receipt-add-icon">📷</span>
-          <span>영수증 추가</span>
+          <span class="receipt-add-icon">📷</span><span>영수증 추가</span>
         </label>
       </div>
     </div>
@@ -176,9 +186,7 @@ button.primary:active { opacity: 0.8; }
 
   <div class="section">
     <div class="sec-label">실제 납부 금액 <span id="total-summary" style="font-weight:400;color:#aaa;font-size:10px;"></span></div>
-    <div class="two-col" id="paid-grid">
-      <div class="empty" style="grid-column:1/-1;padding:10px;">인원을 먼저 추가해 주세요.</div>
-    </div>
+    <div class="two-col" id="paid-grid"><div class="empty" style="grid-column:1/-1;padding:10px;">인원을 먼저 추가해 주세요.</div></div>
   </div>
 
   <div class="section">
@@ -190,14 +198,9 @@ button.primary:active { opacity: 0.8; }
   <div class="section">
     <div class="sec-label">최종 정산 결과</div>
     <div id="result-area"><div class="empty">인원과 금액을 입력하면<br>결과가 나타납니다.</div></div>
-    <button class="share-btn" id="share-btn" onclick="shareResult()" style="display:none;">
-      📷 카카오톡 공유용 이미지 저장
-    </button>
-    <button onclick="resetAll()" style="width:100%;padding:11px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:0.5px solid #e0e0d8;background:#fff;color:#e24b4a;margin-top:8px;">
-      🗑 전체 초기화
-    </button>
+    <button class="share-btn" id="share-btn" onclick="shareResult()" style="display:none;">📷 카카오톡 공유용 이미지 저장</button>
+    <button onclick="resetAll()" style="width:100%;padding:11px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:0.5px solid #e0e0d8;background:#fff;color:#e24b4a;margin-top:8px;">🗑 전체 초기화</button>
   </div>
-
 </div>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
@@ -213,63 +216,33 @@ const COLORS=[
   {bg:'#FBEAF0',text:'#993556'},{bg:'#FAEEDA',text:'#854F0B'},
   {bg:'#EAF3DE',text:'#3B6D11'},{bg:'#FCEBEB',text:'#A32D2D'},
 ];
-let people=[], rounds=[], paidMap={}, receipts=[], accounts=[];
-let pId=0, rId=0, iId=0, rcId=0, acId=0;
+let people=[], rounds=[], sponsors=[], paidMap={}, receipts=[], accounts=[];
+let pId=0, rId=0, iId=0, sId=0, rcId=0, acId=0;
 let currentType='normal', currentRatio=1;
 
 function gc(i){return COLORS[i%COLORS.length];}
-function nameTag(name){
-  if(!name) return '?';
-  const isKorean=/[가-힣]/.test(name);
-  if(isKorean && name.length>=2) return name.slice(1);
-  return name.slice(0,2).toUpperCase();
-}
+function nameTag(n){ return /[가-힣]/.test(n)&&n.length>=2?n.slice(1):n.slice(0,2).toUpperCase(); }
 function pidx(id){return people.findIndex(p=>p.id===id);}
-
-function makeAvatar(p, size=22, fontSize=10){
-  const c=gc(pidx(p.id));
-  const tag=nameTag(p.name);
-  const fs=tag.length>=3?Math.max(7,fontSize-2):fontSize;
-  return `<div class="avatar" style="background:${c.bg};color:${c.text};width:${size}px;height:${size}px;font-size:${fs}px;">${tag}</div>`;
+function makeAv(p,size=22,fs=10){
+  const c=gc(pidx(p.id)); const tag=nameTag(p.name);
+  const f=tag.length>=3?Math.max(7,fs-2):fs;
+  return `<div class="avatar" style="background:${c.bg};color:${c.text};width:${size}px;height:${size}px;font-size:${f}px;">${tag}</div>`;
 }
 
 function initDateSelects(){
-  const now=new Date();
-  const ySel=document.getElementById('sel-year');
-  const mSel=document.getElementById('sel-month');
-  const curY=now.getFullYear();
-  for(let y=curY-2;y<=curY+2;y++){
-    const o=document.createElement('option');
-    o.value=y; o.textContent=y+'년';
-    if(y===curY) o.selected=true;
-    ySel.appendChild(o);
-  }
-  for(let m=1;m<=12;m++){
-    const o=document.createElement('option');
-    o.value=m; o.textContent=m+'월';
-    if(m===now.getMonth()+1) o.selected=true;
-    mSel.appendChild(o);
-  }
-  updateDaySelect();
-  document.getElementById('sel-day').value=now.getDate();
+  const now=new Date(); const ySel=document.getElementById('sel-year'); const mSel=document.getElementById('sel-month'); const curY=now.getFullYear();
+  for(let y=curY-2;y<=curY+2;y++){const o=document.createElement('option');o.value=y;o.textContent=y+'년';if(y===curY)o.selected=true;ySel.appendChild(o);}
+  for(let m=1;m<=12;m++){const o=document.createElement('option');o.value=m;o.textContent=m+'월';if(m===now.getMonth()+1)o.selected=true;mSel.appendChild(o);}
+  updateDaySelect(); document.getElementById('sel-day').value=now.getDate();
 }
 function updateDaySelect(){
-  const y=parseInt(document.getElementById('sel-year').value);
-  const m=parseInt(document.getElementById('sel-month').value);
-  const dSel=document.getElementById('sel-day');
-  const cur=dSel.value;
-  const days=new Date(y,m,0).getDate();
+  const y=parseInt(document.getElementById('sel-year').value); const m=parseInt(document.getElementById('sel-month').value);
+  const dSel=document.getElementById('sel-day'); const cur=dSel.value; const days=new Date(y,m,0).getDate();
   dSel.innerHTML='';
-  for(let d=1;d<=days;d++){
-    const o=document.createElement('option');
-    o.value=d; o.textContent=d+'일';
-    dSel.appendChild(o);
-  }
+  for(let d=1;d<=days;d++){const o=document.createElement('option');o.value=d;o.textContent=d+'일';dSel.appendChild(o);}
   if(cur&&cur<=days) dSel.value=cur;
 }
-function getDateStr(){
-  return `${document.getElementById('sel-year').value}년 ${document.getElementById('sel-month').value}월 ${document.getElementById('sel-day').value}일`;
-}
+function getDateStr(){return `${document.getElementById('sel-year').value}년 ${document.getElementById('sel-month').value}월 ${document.getElementById('sel-day').value}일`;}
 
 function setType(type){
   currentType=type;
@@ -288,36 +261,129 @@ function setRatio(r){
 }
 
 function addPerson(){
-  const inp=document.getElementById('name-input');
-  const name=inp.value.trim();
+  const inp=document.getElementById('name-input'); const name=inp.value.trim();
   if(!name||people.find(p=>p.name===name)){inp.value='';return;}
   const guardianId=currentType==='companion'?parseInt(document.getElementById('guardian-select').value)||null:null;
   if(currentType==='companion'&&!guardianId){alert('책임자를 선택해 주세요!');return;}
   const p={id:pId++,name,type:currentType,ratio:currentRatio,guardianId};
-  people.push(p);
-  paidMap[p.id]=0;
-  rounds.forEach(r=>{ r.attendees[p.id]=true; r.sponsor[p.id]=0; r.sponsorExempt[p.id]=false; r.face[p.id]=0; });
+  people.push(p); paidMap[p.id]=0;
+  rounds.forEach(r=>{ r.attendees[p.id]=true; r.face[p.id]=0; });
   inp.value=''; renderAll();
 }
 function removePerson(id){
-  people=people.filter(p=>p.id!==id&&p.guardianId!==id);
-  delete paidMap[id];
-  rounds.forEach(r=>{ delete r.attendees[id]; delete r.sponsor[id]; delete r.sponsorExempt[id]; delete r.face[id]; });
+  people=people.filter(p=>p.id!==id&&p.guardianId!==id); delete paidMap[id];
+  rounds.forEach(r=>{ delete r.attendees[id]; delete r.face[id]; });
+  sponsors=sponsors.filter(s=>s.personId!==id);
   renderAll();
 }
 
-function addAccount(){
-  accounts.push({id:acId++,name:'',bank:'',num:''});
-  renderAccounts();
+/* 찬조 */
+function addSponsor(){
+  if(!people.length){alert('인원을 먼저 추가해 주세요!');return;}
+  const normalPeople=people.filter(p=>p.type!=='companion');
+  if(!normalPeople.length){alert('일반 인원을 먼저 추가해 주세요!');return;}
+  sponsors.push({id:sId++,personId:normalPeople[0].id,amount:0,exemptRounds:{}});
+  renderSponsors();
 }
-function removeAccount(id){
-  accounts=accounts.filter(a=>a.id!==id);
-  renderAccounts(); calculate();
+function removeSponsor(id){ sponsors=sponsors.filter(s=>s.id!==id); renderSponsors(); calculate(); }
+function updateSponsorPerson(sid,val){
+  const s=sponsors.find(s=>s.id===sid);
+  if(s){ s.personId=parseInt(val); s.exemptRounds={}; renderSponsors(); calculate(); }
 }
-function updateAccount(id,field,val){
-  const a=accounts.find(a=>a.id===id);
-  if(a){ a[field]=val; calculate(); }
+function updateSponsorAmount(sid,val){
+  const s=sponsors.find(s=>s.id===sid); if(s){ s.amount=parseFloat(val)||0; calculate(); }
 }
+function toggleExemptRound(sid,rid){
+  const s=sponsors.find(s=>s.id===sid); if(!s) return;
+  s.exemptRounds[rid]=!s.exemptRounds[rid];
+  const btn=document.getElementById(`eb-${sid}-${rid}`);
+  if(btn) btn.classList.toggle('on',s.exemptRounds[rid]);
+  const allOn=rounds.length>0&&rounds.every(r=>s.exemptRounds[r.id]);
+  const allBtn=document.getElementById(`eb-all-${sid}`);
+  if(allBtn) allBtn.classList.toggle('on',allOn);
+  calculate();
+}
+function toggleExemptAll(sid){
+  const s=sponsors.find(s=>s.id===sid); if(!s) return;
+  const allOn=rounds.length>0&&rounds.every(r=>s.exemptRounds[r.id]);
+  rounds.forEach(r=>{ s.exemptRounds[r.id]=!allOn; });
+  renderSponsors(); calculate();
+}
+
+/* 차수 */
+function addRound(){
+  const att={}, face={};
+  people.forEach(p=>{ att[p.id]=true; face[p.id]=0; });
+  rounds.push({id:rId++,items:[],attendees:att,face:face});
+  renderRounds(); renderSponsors(); calculate();
+}
+function removeRound(id){
+  rounds=rounds.filter(r=>r.id!==id);
+  sponsors.forEach(s=>{ delete s.exemptRounds[id]; });
+  renderRounds(); renderSponsors(); calculate();
+}
+function toggleAttendee(rid,pid){
+  const r=rounds.find(r=>r.id===rid); if(r){ r.attendees[pid]=!r.attendees[pid]; renderRounds(); calculate(); }
+}
+function addItem(rid){ const r=rounds.find(r=>r.id===rid); if(r){ r.items.push({id:iId++,name:'',amount:''}); renderRounds(); } }
+function removeItem(rid,iid){ const r=rounds.find(r=>r.id===rid); if(r){ r.items=r.items.filter(it=>it.id!==iid); renderRounds(); calculate(); } }
+function updateItem(rid,iid,field,val){ const r=rounds.find(r=>r.id===rid); const it=r&&r.items.find(it=>it.id===iid); if(it){ it[field]=val; calculate(); } }
+function updatePaid(pid,val){ paidMap[pid]=parseFloat(val)||0; calculate(); }
+function updateFace(rid,pid,val){ const r=rounds.find(r=>r.id===rid); if(r){ r.face[pid]=parseFloat(val)||0; calculate(); } }
+
+function addReceipts(input){
+  Array.from(input.files).forEach(file=>{ const reader=new FileReader(); reader.onload=e=>{ receipts.push({id:rcId++,src:e.target.result}); renderReceipts(); }; reader.readAsDataURL(file); }); input.value='';
+}
+function removeReceipt(id){ receipts=receipts.filter(r=>r.id!==id); renderReceipts(); }
+function openLightbox(src){ document.getElementById('lightbox-img').src=src; document.getElementById('lightbox').classList.add('open'); }
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
+function addAccount(){ accounts.push({id:acId++,name:'',bank:'',num:''}); renderAccounts(); }
+function removeAccount(id){ accounts=accounts.filter(a=>a.id!==id); renderAccounts(); calculate(); }
+function updateAccount(id,field,val){ const a=accounts.find(a=>a.id===id); if(a){ a[field]=val; calculate(); } }
+
+function renderPeople(){
+  document.getElementById('people-wrap').innerHTML=people.map(p=>{
+    const guardian=p.guardianId!=null?people.find(g=>g.id===p.guardianId):null;
+    const tags=[
+      p.type==='companion'?`<span style="font-size:10px;background:#fffbf0;color:#85560B;border-radius:6px;padding:1px 6px;border:0.5px solid #f5d88a;">동반→${guardian?guardian.name:''}</span>`:'',
+      p.ratio===0.5?`<span style="font-size:10px;background:#e6f1fb;color:#185FA5;border-radius:6px;padding:1px 6px;border:0.5px solid #b5d4f4;">반값</span>`:'',
+    ].filter(Boolean).join(' ');
+    return `<div class="chip">${makeAv(p,22,10)}${p.name} ${tags}<button class="chip-remove" onclick="removePerson(${p.id})">×</button></div>`;
+  }).join('');
+  const sel=document.getElementById('guardian-select'); const cur=sel.value;
+  sel.innerHTML='<option value="">선택</option>'+people.filter(p=>p.type==='normal').map(p=>`<option value="${p.id}">${p.name}</option>`).join('');
+  sel.value=cur;
+}
+
+function renderSponsors(){
+  document.getElementById('sponsor-list').innerHTML=sponsors.map(s=>{
+    const p=people.find(pp=>pp.id===s.personId)||people.find(pp=>pp.type!=='companion'); if(!p) return '';
+    const personOpts=people.filter(pp=>pp.type!=='companion').map(pp=>`<option value="${pp.id}" ${pp.id===s.personId?'selected':''}>${pp.name}</option>`).join('');
+    const allOn=rounds.length>0&&rounds.every(r=>s.exemptRounds[r.id]);
+    const roundBtns=rounds.map((r,ri)=>`<button id="eb-${s.id}-${r.id}" class="exempt-btn ${s.exemptRounds[r.id]?'on':''}" onclick="toggleExemptRound(${s.id},${r.id})">${ri+1}차</button>`).join('');
+    return `<div class="sponsor-card">
+      <div class="sponsor-top">
+        ${makeAv(p,30,13)}
+        <div class="sponsor-info">
+          <select class="sponsor-person-select" onchange="updateSponsorPerson(${s.id},this.value)">${personOpts}</select>
+          <div class="sponsor-amount-row">
+            <input type="number" placeholder="찬조 금액" value="${s.amount||''}" min="0" step="1000" oninput="updateSponsorAmount(${s.id},this.value)" inputmode="numeric" />
+            <span>원 찬조</span>
+          </div>
+        </div>
+        <button class="sponsor-del" onclick="removeSponsor(${s.id})">×</button>
+      </div>
+      <div class="exempt-section">
+        <div class="exempt-label">본인 몫 면제 차수 선택 <span style="font-weight:400;color:#aaa;font-size:10px;">선택한 차수에서 본인 몫 제외</span></div>
+        <div class="exempt-btns">
+          ${rounds.length?roundBtns:'<span style="font-size:12px;color:#aaa;">차수를 먼저 추가해 주세요.</span>'}
+          ${rounds.length?`<button id="eb-all-${s.id}" class="exempt-all-btn ${allOn?'on':''}" onclick="toggleExemptAll(${s.id})">전액면제</button>`:''}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
 function renderAccounts(){
   document.getElementById('account-list').innerHTML=accounts.map(a=>`
     <div class="card" style="margin-bottom:8px;">
@@ -331,317 +397,198 @@ function renderAccounts(){
     </div>`).join('');
 }
 
-function addRound(){
-  const att={}, spon={}, sponsorExempt={}, face={};
-  people.forEach(p=>{ att[p.id]=true; spon[p.id]=0; sponsorExempt[p.id]=false; face[p.id]=0; });
-  rounds.push({id:rId++,items:[],attendees:att,sponsor:spon,sponsorExempt:sponsorExempt,face:face});
-  renderRounds(); calculate();
-}
-function removeRound(id){ rounds=rounds.filter(r=>r.id!==id); renderRounds(); calculate(); }
-function toggleAttendee(rid,pid){
-  const r=rounds.find(r=>r.id===rid);
-  if(r){ r.attendees[pid]=!r.attendees[pid]; renderRounds(); calculate(); }
-}
-function addItem(rid){
-  const r=rounds.find(r=>r.id===rid);
-  if(r){ r.items.push({id:iId++,name:'',amount:''}); renderRounds(); }
-}
-function removeItem(rid,iid){
-  const r=rounds.find(r=>r.id===rid);
-  if(r){ r.items=r.items.filter(it=>it.id!==iid); renderRounds(); calculate(); }
-}
-function updateItem(rid,iid,field,val){
-  const r=rounds.find(r=>r.id===rid);
-  const it=r&&r.items.find(it=>it.id===iid);
-  if(it){ it[field]=val; calculate(); }
-}
-function updatePaid(pid,val){ paidMap[pid]=parseFloat(val)||0; calculate(); }
-function updateSponsor(rid,pid,val){
-  const r=rounds.find(r=>r.id===rid);
-  if(r){ r.sponsor[pid]=parseFloat(val)||0; calculate(); }
-}
-function toggleSponsorExempt(rid,pid,checked){
-  const r=rounds.find(r=>r.id===rid);
-  if(r){ r.sponsorExempt[pid]=checked; calculate(); }
-}
-function updateFace(rid,pid,val){
-  const r=rounds.find(r=>r.id===rid);
-  if(r){ r.face[pid]=parseFloat(val)||0; calculate(); }
-}
-
-function addReceipts(input){
-  Array.from(input.files).forEach(file=>{
-    const reader=new FileReader();
-    reader.onload=e=>{ receipts.push({id:rcId++,src:e.target.result}); renderReceipts(); };
-    reader.readAsDataURL(file);
-  });
-  input.value='';
-}
-function removeReceipt(id){ receipts=receipts.filter(r=>r.id!==id); renderReceipts(); }
-function openLightbox(src){ document.getElementById('lightbox-img').src=src; document.getElementById('lightbox').classList.add('open'); }
-function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
-
-function renderPeople(){
-  document.getElementById('people-wrap').innerHTML=people.map((p,i)=>{
-    const guardian=p.guardianId!=null?people.find(g=>g.id===p.guardianId):null;
-    const tags=[
-      p.type==='companion'?`<span style="font-size:10px;background:#fffbf0;color:#85560B;border-radius:6px;padding:1px 6px;border:0.5px solid #f5d88a;">동반→${guardian?guardian.name:''}</span>`:'',
-      p.ratio===0.5?`<span style="font-size:10px;background:#e6f1fb;color:#185FA5;border-radius:6px;padding:1px 6px;border:0.5px solid #b5d4f4;">반값</span>`:'',
-    ].filter(Boolean).join(' ');
-    return `<div class="chip">
-      ${makeAvatar(p,22,10)}
-      ${p.name} ${tags}
-      <button class="chip-remove" onclick="removePerson(${p.id})">×</button>
-    </div>`;
-  }).join('');
-  const sel=document.getElementById('guardian-select');
-  const cur=sel.value;
-  sel.innerHTML='<option value="">선택</option>'+
-    people.filter(p=>p.type==='normal').map(p=>`<option value="${p.id}">${p.name}</option>`).join('');
-  sel.value=cur;
-}
-
 function renderReceipts(){
   const grid=document.getElementById('receipt-grid');
-  grid.innerHTML=receipts.map((r,i)=>`
-    <div class="receipt-thumb">
-      <img src="${r.src}" alt="영수증 ${i+1}" onclick="openLightbox('${r.src}')" />
-      <button class="receipt-del" onclick="removeReceipt(${r.id})">×</button>
-    </div>`).join('')+`
-    <label class="receipt-add-btn">
-      <input type="file" accept="image/*" multiple onchange="addReceipts(this)" />
-      <span class="receipt-add-icon">＋</span>
-      <span>추가</span>
-    </label>`;
+  grid.innerHTML=receipts.map((r,i)=>`<div class="receipt-thumb"><img src="${r.src}" alt="영수증 ${i+1}" onclick="openLightbox('${r.src}')" /><button class="receipt-del" onclick="removeReceipt(${r.id})">×</button></div>`).join('')+`<label class="receipt-add-btn"><input type="file" accept="image/*" multiple onchange="addReceipts(this)" /><span class="receipt-add-icon">＋</span><span>추가</span></label>`;
 }
 
 function renderRounds(){
   document.getElementById('rounds-list').innerHTML=rounds.map((r,ri)=>{
-    const atBtns=people.map(p=>{
-      const c=gc(pidx(p.id)); const on=r.attendees[p.id];
-      const tag=nameTag(p.name);
-      const fs=tag.length>=3?7:9;
-      return `<button class="att-btn ${on?'on':''}" onclick="toggleAttendee(${r.id},${p.id})">
-        <div class="av2" style="background:${on?c.bg:'#ececec'};color:${on?c.text:'#aaa'};font-size:${fs}px;">${tag}</div>
-        ${p.name}${on?'':' ✕'}
-      </button>`;
-    }).join('');
-    const itemRows=r.items.map(it=>`
-      <div class="item-row">
-        <input type="text" placeholder="품목명" value="${it.name}" oninput="updateItem(${r.id},${it.id},'name',this.value)" style="font-size:13px;" />
-        <input type="number" placeholder="금액" value="${it.amount}" min="0" step="100" oninput="updateItem(${r.id},${it.id},'amount',this.value)" style="font-size:13px;" inputmode="numeric" />
-        <button class="item-del" onclick="removeItem(${r.id},${it.id})">×</button>
-      </div>`).join('');
+    const atBtns=people.map(p=>{ const c=gc(pidx(p.id)); const on=r.attendees[p.id]; const tag=nameTag(p.name); const fs=tag.length>=3?7:9; return `<button class="att-btn ${on?'on':''}" onclick="toggleAttendee(${r.id},${p.id})"><div class="av2" style="background:${on?c.bg:'#ececec'};color:${on?c.text:'#aaa'};font-size:${fs}px;">${tag}</div>${p.name}${on?'':' ✕'}</button>`; }).join('');
+    const itemRows=r.items.map(it=>`<div class="item-row"><input type="text" placeholder="품목명" value="${it.name}" oninput="updateItem(${r.id},${it.id},'name',this.value)" style="font-size:13px;" /><input type="number" placeholder="금액" value="${it.amount}" min="0" step="100" oninput="updateItem(${r.id},${it.id},'amount',this.value)" style="font-size:13px;" inputmode="numeric" /><button class="item-del" onclick="removeItem(${r.id},${it.id})">×</button></div>`).join('');
     const total=r.items.reduce((s,it)=>s+(parseFloat(it.amount)||0),0);
     const cnt=Object.values(r.attendees).filter(Boolean).length;
     const attendees=people.filter(p=>r.attendees[p.id]);
-
-    const sponsorInputs=attendees.map(p=>{
-  const exempt=r.sponsorExempt[p.id]||false;
-  const hasSponsor=(r.sponsor[p.id]||0)>0;
-  return `<div class="sponsor-item">
-    <div class="sponsor-name">${makeAvatar(p,16,8)}${p.name}</div>
-    <input type="number" placeholder="0원" value="${r.sponsor[p.id]||''}" min="0" step="1000"
-      oninput="updateSponsor(${r.id},${p.id},this.value)" inputmode="numeric" />
-    <label class="sponsor-exempt" style="opacity:${hasSponsor?1:0.3};">
-      <input type="checkbox" ${exempt?'checked':''} ${hasSponsor?'':'disabled'}
-        onchange="toggleSponsorExempt(${r.id},${p.id},this.checked)" />
-      <span>본인 몫 면제</span>
-    </label>
-  </div>`;
-}).join('');
-
-    const faceInputs=attendees.map(p=>`
-      <div class="face-item">
-        <div class="face-name">${makeAvatar(p,16,8)}${p.name}</div>
-        <input type="number" placeholder="0원" value="${r.face[p.id]||''}" min="0" step="1000"
-          oninput="updateFace(${r.id},${p.id},this.value)" inputmode="numeric" />
-      </div>`).join('');
-
-    return `<div class="round-card">
-      <div class="round-header">
-        <span class="round-title">${ri+1}차<span class="round-meta"> ${cnt}명${total?' · '+total.toLocaleString()+'원':''}</span></span>
-        <button class="round-del" onclick="removeRound(${r.id})">🗑</button>
-      </div>
-      <div class="round-body">
-        <div style="font-size:11px;color:#aaa;margin-bottom:6px;font-weight:600;">참석 여부</div>
-        <div class="att-wrap">${people.length?atBtns:'<span style="font-size:12px;color:#bbb;">인원을 먼저 추가해 주세요.</span>'}</div>
-        <div style="font-size:11px;color:#aaa;margin-bottom:6px;font-weight:600;">품목</div>
-        ${itemRows}
-        <button class="add-link" onclick="addItem(${r.id})">＋ 품목 추가</button>
-        <div class="sub-section">
-          <div class="sub-label" style="color:#85560B;">🎁 찬조 <span style="font-size:10px;font-weight:400;color:#aaa;">금액 입력 후 "본인 몫 면제" 체크 가능</span></div>
-          <div class="sub-grid">${attendees.length?sponsorInputs:'<span style="font-size:12px;color:#aaa;">참석자를 선택해 주세요.</span>'}</div>
-        </div>
-        <div class="sub-section" style="margin-top:8px;">
-          <div class="sub-label" style="color:#185FA5;">😶 얼굴마담 <span style="font-size:10px;font-weight:400;color:#aaa;">고정 금액만 내는 사람</span></div>
-          <div class="sub-grid">${attendees.length?faceInputs:'<span style="font-size:12px;color:#aaa;">참석자를 선택해 주세요.</span>'}</div>
-        </div>
-      </div>
-    </div>`;
+    const faceInputs=attendees.map(p=>`<div class="face-item"><div class="face-name">${makeAv(p,16,8)}${p.name}</div><input type="number" placeholder="0원" value="${r.face[p.id]||''}" min="0" step="1000" oninput="updateFace(${r.id},${p.id},this.value)" inputmode="numeric" /></div>`).join('');
+    return `<div class="round-card"><div class="round-header"><span class="round-title">${ri+1}차<span class="round-meta"> ${cnt}명${total?' · '+total.toLocaleString()+'원':''}</span></span><button class="round-del" onclick="removeRound(${r.id})">🗑</button></div><div class="round-body"><div style="font-size:11px;color:#aaa;margin-bottom:6px;font-weight:600;">참석 여부</div><div class="att-wrap">${people.length?atBtns:'<span style="font-size:12px;color:#bbb;">인원을 먼저 추가해 주세요.</span>'}</div><div style="font-size:11px;color:#aaa;margin-bottom:6px;font-weight:600;">품목</div>${itemRows}<button class="add-link" onclick="addItem(${r.id})">＋ 품목 추가</button><div class="face-sub"><div style="font-size:11px;color:#185FA5;font-weight:600;margin-bottom:8px;">😶 얼굴마담 <span style="font-weight:400;color:#aaa;">고정 금액만 내는 사람</span></div><div class="face-grid">${attendees.length?faceInputs:'<span style="font-size:12px;color:#aaa;">참석자를 선택해 주세요.</span>'}</div></div></div></div>`;
   }).join('');
-
-  document.getElementById('paid-grid').innerHTML=people.filter(p=>p.type!=='companion').map(p=>`
-    <div class="paid-item">
-      <div class="paid-name">${makeAvatar(p,18,9)}${p.name}</div>
-      <input type="number" placeholder="0원" value="${paidMap[p.id]||''}" min="0" step="1000"
-        oninput="updatePaid(${p.id},this.value)" inputmode="numeric" />
-    </div>`).join('');
+  document.getElementById('paid-grid').innerHTML=people.filter(p=>p.type!=='companion').map(p=>`<div class="paid-item"><div class="paid-name">${makeAv(p,18,9)}${p.name}</div><input type="number" placeholder="0원" value="${paidMap[p.id]||''}" min="0" step="1000" oninput="updatePaid(${p.id},this.value)" inputmode="numeric" /></div>`).join('');
 }
 
 function calculate(){
   const area=document.getElementById('result-area');
   const shareBtn=document.getElementById('share-btn');
-  if(!people.length||!rounds.length){
-    area.innerHTML='<div class="empty">인원과 차수를 추가하면<br>결과가 나타납니다.</div>';
-    shareBtn.style.display='none'; return;
-  }
+  if(!people.length||!rounds.length){ area.innerHTML='<div class="empty">인원과 차수를 추가하면<br>결과가 나타납니다.</div>'; shareBtn.style.display='none'; return; }
+
+  /*
+    계산 로직:
+    1. 각 차수별 총액 합산 → grandTotal
+    2. 전체 찬조금 합산 → totalSponsor
+    3. 실부담 = grandTotal - totalSponsor
+    4. 면제 선택한 차수에서 해당 찬조자 참석 여부 확인 후
+       면제 인원 제외하고 나머지가 실부담을 나눔
+    5. 최종 잔액 = 실납부 - 내야할금액
+       (찬조자는 찬조금으로 낸 것이므로 실납부에 찬조금 포함 안 함)
+  */
 
   const shouldPay={};
   people.forEach(p=>{ shouldPay[p.id]=0; });
   let grandTotal=0, roundsHtml='';
 
+  // 전체 찬조금 합산
+  const totalSponsorAll=sponsors.reduce((s,sp)=>s+(sp.amount||0),0);
+
+  // 차수별 참석자 정보 수집 (면제 계산용)
   rounds.forEach((r,ri)=>{
     const rawTotal=r.items.reduce((s,it)=>s+(parseFloat(it.amount)||0),0);
     if(!rawTotal) return;
     grandTotal+=rawTotal;
-    const attendees=people.filter(p=>r.attendees[p.id]);
-    if(!attendees.length) return;
-
-    const totalSponsor=attendees.reduce((s,p)=>s+(r.sponsor[p.id]||0),0);
-    const totalFace=attendees.reduce((s,p)=>s+(r.face[p.id]||0),0);
-    const afterSponsor=Math.max(0,rawTotal-totalSponsor);
-    const afterFace=Math.max(0,afterSponsor-totalFace);
-
-    // 얼굴마담 배정
-    attendees.forEach(p=>{
-      if(r.face[p.id]>0){
-        const amt=r.face[p.id];
-        if(p.type==='companion'&&p.guardianId!=null){
-          shouldPay[p.guardianId]=(shouldPay[p.guardianId]||0)+amt;
-        } else {
-          shouldPay[p.id]=(shouldPay[p.id]||0)+amt;
-        }
-      }
-    });
-
-    // 나머지 분배: 얼굴마담 아닌 사람 + 찬조 면제자도 제외
-    const normalAttendees=attendees.filter(p=>
-      !(r.face[p.id]>0) && !(r.sponsorExempt[p.id] && r.sponsor[p.id]>0)
-    );
-    const totalUnits=normalAttendees.reduce((s,p)=>s+(p.ratio||1),0);
-    const perUnit=totalUnits>0?afterFace/totalUnits:0;
-
-    normalAttendees.forEach(p=>{
-      const amt=Math.ceil(perUnit*(p.ratio||1));
-      if(p.type==='companion'&&p.guardianId!=null){
-        shouldPay[p.guardianId]=(shouldPay[p.guardianId]||0)+amt;
-      } else {
-        shouldPay[p.id]=(shouldPay[p.id]||0)+amt;
-      }
-    });
-
-    const absent=people.filter(p=>!r.attendees[p.id]);
-    const sponsorLine=totalSponsor>0?`<div class="note note-yellow">찬조 ${totalSponsor.toLocaleString()}원 차감 → 실부담 ${afterSponsor.toLocaleString()}원</div>`:'';
-    const faceLine=totalFace>0?`<div class="note note-blue">얼굴마담 ${totalFace.toLocaleString()}원 차감 → 나머지 ${afterFace.toLocaleString()}원 분배</div>`:'';
-    const itemNames=r.items.filter(it=>it.name).map(it=>it.name).join(', ');
-    const roundLabel=`${ri+1}차${itemNames?' · '+itemNames:''} · ${rawTotal.toLocaleString()}원`;
-
-    const rows=attendees.filter(p=>p.type!=='companion').map(p=>{
-      const isFace=r.face[p.id]>0;
-      const isExempt=r.sponsorExempt[p.id]&&r.sponsor[p.id]>0;
-      const myCompanions=attendees.filter(cp=>cp.guardianId===p.id);
-      const myCompanionFace=myCompanions.filter(cp=>r.face[cp.id]>0).reduce((s,cp)=>s+(r.face[cp.id]||0),0);
-      const myCompanionNormal=myCompanions.filter(cp=>!(r.face[cp.id]>0)&&!(r.sponsorExempt[cp.id]&&r.sponsor[cp.id]>0)).reduce((s,cp)=>s+Math.ceil(perUnit*(cp.ratio||1)),0);
-      const myAmt=isFace?(r.face[p.id]):isExempt?0:Math.ceil(perUnit*(p.ratio||1));
-      const companionAmt=myCompanionFace+myCompanionNormal;
-      const totalAmt=myAmt+companionAmt;
-
-      const badges=[
-        isFace?`<span style="font-size:10px;background:#f0f7ff;color:#185FA5;border-radius:4px;padding:1px 5px;border:0.5px solid #b5d4f4;">얼굴마담</span>`:'',
-        r.sponsor[p.id]>0?`<span style="font-size:10px;background:#fffbf0;color:#85560B;border-radius:4px;padding:1px 5px;border:0.5px solid #f5d88a;">찬조${isExempt?' · 면제':''}</span>`:'',
-      ].filter(Boolean).join(' ');
-
-      return `<div class="rr-row" style="flex-direction:column;align-items:stretch;">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <div class="rr-name">
-            ${makeAvatar(p,20,9)}
-            ${p.name}
-            ${badges}
-          </div>
-          <div class="rr-amt">${totalAmt.toLocaleString()}원</div>
-        </div>
-        ${companionAmt>0?`<div style="font-size:11px;color:#aaa;margin-left:27px;margin-top:2px;">본인 ${myAmt.toLocaleString()}원 + 동반 ${companionAmt.toLocaleString()}원</div>`:''}
-      </div>`;
-    }).join('');
-
-    const absentBadges=absent.map(p=>`<span style="font-size:11px;background:#f5f5f0;color:#aaa;border-radius:6px;padding:2px 7px;border:0.5px solid #e0e0d8;">${p.name} 불참</span>`).join(' ');
-    roundsHtml+=`<div class="result-block">
-      <div class="rr-label">${roundLabel}</div>
-      ${sponsorLine}${faceLine}${rows}
-      ${absent.length?`<div style="margin-top:6px;display:flex;gap:5px;flex-wrap:wrap;">${absentBadges}</div>`:''}
-    </div>`;
   });
 
-  if(!roundsHtml){
-    area.innerHTML='<div class="empty">품목 금액을 입력해 주세요.</div>';
-    shareBtn.style.display='none'; return;
+  // 실부담 총액
+  const netTotal=Math.max(0, grandTotal-totalSponsorAll);
+
+  // 면제된 찬조자 ID 수집 (전체 면제 = 전액면제 선택한 사람)
+  // 면제는 "이 사람은 내야 할 금액에서 제외"
+  const fullyExemptIds=new Set(); // 모든 차수 면제
+  const partialExemptRounds={}; // 차수별 면제 {pid: Set of rids}
+
+  sponsors.forEach(sp=>{
+    if(sp.amount<=0) return;
+    const exemptedRids=rounds.filter(r=>sp.exemptRounds[r.id]).map(r=>r.id);
+    if(exemptedRids.length===0) return;
+    const allExempt=rounds.every(r=>sp.exemptRounds[r.id]);
+    if(allExempt){
+      fullyExemptIds.add(sp.personId);
+    } else {
+      if(!partialExemptRounds[sp.personId]) partialExemptRounds[sp.personId]=new Set();
+      exemptedRids.forEach(rid=>partialExemptRounds[sp.personId].add(rid));
+    }
+  });
+
+  // 각 차수별로 shouldPay 계산
+  // 얼굴마담은 차수별로 처리, 나머지는 netTotal 기준으로 최종 분배
+  // 단순하게: 각 차수에서 얼굴마담 먼저 처리, 나머지는 별도로 합산
+
+  const faceTotal={}; // 사람별 얼굴마담 총액
+  people.forEach(p=>{ faceTotal[p.id]=0; });
+
+  rounds.forEach((r,ri)=>{
+    const rawTotal=r.items.reduce((s,it)=>s+(parseFloat(it.amount)||0),0);
+    if(!rawTotal) return;
+    const attendees=people.filter(p=>r.attendees[p.id]);
+    attendees.forEach(p=>{ if(r.face[p.id]>0) faceTotal[p.id]+=(r.face[p.id]); });
+  });
+
+  // 얼굴마담 배정
+  people.forEach(p=>{
+    if(faceTotal[p.id]>0){
+      if(p.type==='companion'&&p.guardianId!=null) shouldPay[p.guardianId]+=faceTotal[p.id];
+      else shouldPay[p.id]+=faceTotal[p.id];
+    }
+  });
+
+  const grandFaceTotal=people.reduce((s,p)=>s+faceTotal[p.id],0);
+  const netAfterFace=Math.max(0,netTotal-grandFaceTotal);
+
+  // 나머지 금액을 면제자 제외하고 분배
+  // 각 사람이 참석한 차수 비율 계산 (참석 차수 가중치)
+  // 심플하게: 전체 참석 비율 기준으로 나눔
+  const participationUnits={};
+  people.forEach(p=>{ participationUnits[p.id]=0; });
+
+  rounds.forEach(r=>{
+    const rawTotal=r.items.reduce((s,it)=>s+(parseFloat(it.amount)||0),0);
+    if(!rawTotal) return;
+    const attendees=people.filter(p=>r.attendees[p.id]&&!(r.face[p.id]>0));
+    const roundUnits=attendees.reduce((s,p)=>s+(p.ratio||1),0);
+    if(roundUnits<=0) return;
+    attendees.forEach(p=>{
+      participationUnits[p.id]+=(p.ratio||1)/roundUnits*rawTotal;
+    });
+  });
+
+  // 얼굴마담 제외 총 참여 금액에서 면제자 비율 계산
+  const faceExcludedTotal=people.filter(p=>!faceTotal[p.id]).reduce((s,p)=>s+(participationUnits[p.id]||0),0);
+
+  // 면제자 제외한 사람들만 netAfterFace 부담
+  const payingPeople=people.filter(p=>!faceTotal[p.id]&&!fullyExemptIds.has(p.id));
+  const payingUnits=payingPeople.reduce((s,p)=>s+(participationUnits[p.id]||0),0);
+
+  if(payingUnits>0){
+    payingPeople.forEach(p=>{
+      const share=netAfterFace*(participationUnits[p.id]/payingUnits);
+      const amt=Math.ceil(share);
+      if(p.type==='companion'&&p.guardianId!=null) shouldPay[p.guardianId]+=amt;
+      else shouldPay[p.id]+=amt;
+    });
   }
 
+  // 차수별 결과 표시
+  rounds.forEach((r,ri)=>{
+    const rawTotal=r.items.reduce((s,it)=>s+(parseFloat(it.amount)||0),0);
+    if(!rawTotal) return;
+    const attendees=people.filter(p=>r.attendees[p.id]);
+    const absent=people.filter(p=>!r.attendees[p.id]);
+    const totalFaceInRound=attendees.reduce((s,p)=>s+(r.face[p.id]||0),0);
+    const faceLine=totalFaceInRound>0?`<div class="note note-blue">얼굴마담 ${totalFaceInRound.toLocaleString()}원 별도 적용</div>`:'';
+    const exemptInRound=sponsors.filter(sp=>sp.exemptRounds[r.id]&&sp.amount>0);
+    const exemptLine=exemptInRound.length>0?`<div class="note note-yellow">찬조면제: ${exemptInRound.map(sp=>{ const pp=people.find(p=>p.id===sp.personId); return pp?pp.name:''; }).join(', ')}</div>`:'';
+    const itemNames=r.items.filter(it=>it.name).map(it=>it.name).join(', ');
+    const rows=attendees.filter(p=>p.type!=='companion').map(p=>{
+      const isFace=r.face[p.id]>0;
+      const isExempt=fullyExemptIds.has(p.id)||(partialExemptRounds[p.id]&&partialExemptRounds[p.id].has(r.id));
+      const badges=[
+        isFace?`<span style="font-size:10px;background:#f0f7ff;color:#185FA5;border-radius:4px;padding:1px 5px;border:0.5px solid #b5d4f4;">얼굴마담</span>`:'',
+        isExempt?`<span style="font-size:10px;background:#fffbf0;color:#85560B;border-radius:4px;padding:1px 5px;border:0.5px solid #f5d88a;">찬조면제</span>`:'',
+      ].filter(Boolean).join(' ');
+      return `<div class="rr-row"><div class="rr-name">${makeAv(p,20,9)}${p.name} ${badges}</div></div>`;
+    }).join('');
+    const absentBadges=absent.map(p=>`<span style="font-size:11px;background:#f5f5f0;color:#aaa;border-radius:6px;padding:2px 7px;border:0.5px solid #e0e0d8;">${p.name} 불참</span>`).join(' ');
+    roundsHtml+=`<div class="result-block"><div class="rr-label">${ri+1}차${itemNames?' · '+itemNames:''} · ${rawTotal.toLocaleString()}원</div>${faceLine}${exemptLine}${rows}${absent.length?`<div style="margin-top:6px;display:flex;gap:5px;flex-wrap:wrap;">${absentBadges}</div>`:''}</div>`;
+  });
+
+  if(!roundsHtml){ area.innerHTML='<div class="empty">품목 금액을 입력해 주세요.</div>'; shareBtn.style.display='none'; return; }
+
+  // 최종 잔액: 실납부 - shouldPay (찬조는 납부에 포함 안 함)
   const balance={};
-  people.filter(p=>p.type!=='companion').forEach(p=>{ balance[p.id]=(paidMap[p.id]||0)-shouldPay[p.id]; });
+  people.filter(p=>p.type!=='companion').forEach(p=>{
+    balance[p.id]=(paidMap[p.id]||0)-shouldPay[p.id];
+  });
+
+  // 찬조 요약
+  const sponsorSummary=sponsors.filter(sp=>sp.amount>0).map(sp=>{
+    const pp=people.find(p=>p.id===sp.personId); if(!pp) return '';
+    const exemptedRounds=rounds.filter(r=>sp.exemptRounds[r.id]).map((_,__,arr)=>rounds.indexOf(_)+1+'차').join(', ');
+    return `<div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#85560B;margin-bottom:4px;">${makeAv(pp,16,8)}<strong>${pp.name}</strong> ${sp.amount.toLocaleString()}원 찬조${exemptedRounds?` · ${exemptedRounds} 면제`:''}</div>`;
+  }).join('');
+
+  const totalSponsorStr=totalSponsorAll>0?`<div class="note note-yellow" style="margin-bottom:8px;">총 찬조 ${totalSponsorAll.toLocaleString()}원 차감 → 실부담 ${netTotal.toLocaleString()}원 (${payingPeople.length}명 분담)</div>`:'';
 
   const balanceCards=people.filter(p=>p.type!=='companion').map(p=>{
     const c=gc(pidx(p.id)); const b=balance[p.id];
     const cls=b>0?'pos':b<0?'neg':'zero';
     const desc=b>0?`${b.toLocaleString()}원 돌려받음`:b<0?`${Math.abs(b).toLocaleString()}원 더 내야 함`:'정산 완료';
-    return `<div class="bal-card ${cls}">
-      <div class="bal-name ${cls}">${makeAvatar(p,18,9)}${p.name}</div>
-      <div class="bal-amt ${cls}">${Math.abs(b).toLocaleString()}원</div>
-      <div class="bal-desc ${cls}">${desc}</div>
-    </div>`;
+    return `<div class="bal-card ${cls}"><div class="bal-name ${cls}">${makeAv(p,18,9)}${p.name}</div><div class="bal-amt ${cls}">${Math.abs(b).toLocaleString()}원</div><div class="bal-desc ${cls}">${desc}</div></div>`;
   }).join('');
 
   const recvArr=people.filter(p=>p.type!=='companion'&&balance[p.id]>0).map(p=>({...p,rem:balance[p.id]}));
   const payArr=people.filter(p=>p.type!=='companion'&&balance[p.id]<0).map(p=>({...p,rem:-balance[p.id]}));
-  const transfers=[];
-  let ri2=0,pi=0;
+  const transfers=[]; let ri2=0,pi=0;
   while(ri2<recvArr.length&&pi<payArr.length){
     const amt=Math.min(recvArr[ri2].rem,payArr[pi].rem);
     if(amt>0) transfers.push({from:payArr[pi].name,fromId:payArr[pi].id,to:recvArr[ri2].name,toId:recvArr[ri2].id,amt});
     recvArr[ri2].rem-=amt; payArr[pi].rem-=amt;
-    if(recvArr[ri2].rem<=0) ri2++;
-    if(payArr[pi].rem<=0) pi++;
+    if(recvArr[ri2].rem<=0) ri2++; if(payArr[pi].rem<=0) pi++;
   }
 
-  const accHtml=accounts.filter(a=>a.bank||a.num).map(a=>`
-    <div class="acc-display">
-      <div class="acd-label">송금 계좌</div>
-      ${a.name?`<div class="acd-name">${a.name}</div>`:''}
-      ${a.bank?`<div class="acd-bank">${a.bank}</div>`:''}
-      ${a.num?`<div class="acd-num">${a.num}</div>`:''}
-    </div>`).join('');
-
-  const transferHtml=transfers.length?`<div class="transfer-card">
-    <div class="transfer-title">송금 방법</div>
-    ${transfers.map(t=>{
-      const fp=people.find(p=>p.id===t.fromId);
-      const tp=people.find(p=>p.id===t.toId);
-      return `<div class="transfer-row">
-        ${fp?makeAvatar(fp,20,9):''}${t.from}
-        <span class="transfer-arrow">→</span>
-        ${tp?makeAvatar(tp,20,9):''}${t.to}
-        <span class="transfer-amount">${t.amt.toLocaleString()}원</span>
-      </div>`;
-    }).join('')}
-    ${accHtml}
-  </div>`:accHtml?`<div class="transfer-card">${accHtml}</div>`:'';
+  const accHtml=accounts.filter(a=>a.bank||a.num).map(a=>`<div class="acc-display"><div class="acd-label">송금 계좌</div>${a.name?`<div class="acd-name">${a.name}</div>`:''}${a.bank?`<div class="acd-bank">${a.bank}</div>`:''}${a.num?`<div class="acd-num">${a.num}</div>`:''}</div>`).join('');
+  const transferHtml=transfers.length?`<div class="transfer-card"><div class="transfer-title">송금 방법</div>${transfers.map(t=>{ const fp=people.find(p=>p.id===t.fromId); const tp=people.find(p=>p.id===t.toId); return `<div class="transfer-row">${fp?makeAv(fp,20,9):''}${t.from}<span class="transfer-arrow">→</span>${tp?makeAv(tp,20,9):''}${t.to}<span class="transfer-amount">${t.amt.toLocaleString()}원</span></div>`; }).join('')}${accHtml}</div>`:accHtml?`<div class="transfer-card">${accHtml}</div>`:'';
 
   area.innerHTML=`${roundsHtml}
-    <div style="margin-top:12px;">
-      <div class="sec-label">잔액 현황</div>
-      <div class="balance-grid">${balanceCards}</div>
-    </div>
+    ${totalSponsorStr}
+    ${sponsorSummary?`<div style="background:#fffbf0;border:0.5px solid #e8cfa0;border-radius:10px;padding:10px 14px;margin-bottom:8px;">${sponsorSummary}</div>`:''}
+    <div style="margin-top:4px;"><div class="sec-label">잔액 현황</div><div class="balance-grid">${balanceCards}</div></div>
     ${transferHtml}`;
 
   shareBtn.style.display='flex';
@@ -649,100 +596,65 @@ function calculate(){
   const totalEl=document.getElementById('total-summary');
   if(totalEl){
     const totalPaid=people.filter(p=>p.type!=='companion').reduce((s,p)=>s+(paidMap[p.id]||0),0);
-    const totalSponsorAll=rounds.reduce((s,r)=>s+people.reduce((ss,p)=>ss+(r.sponsor[p.id]||0),0),0);
-    const remaining=grandTotal-totalSponsorAll-totalPaid;
-    totalEl.textContent=`— 총 ${grandTotal.toLocaleString()}원 / 납부 ${totalPaid.toLocaleString()}원 / 남은 ${remaining.toLocaleString()}원`;
+    totalEl.textContent=`— 총 ${grandTotal.toLocaleString()}원 / 찬조 ${totalSponsorAll.toLocaleString()}원 / 납부 ${totalPaid.toLocaleString()}원`;
   }
   saveData();
 }
 
-function renderAll(){ renderPeople(); renderAccounts(); renderRounds(); calculate(); }
+function renderAll(){ renderPeople(); renderSponsors(); renderAccounts(); renderRounds(); calculate(); }
 
 function saveData(){
-  const mName=document.getElementById('meeting-name').value;
-  const mYear=document.getElementById('sel-year').value;
-  const mMonth=document.getElementById('sel-month').value;
-  const mDay=document.getElementById('sel-day').value;
-  localStorage.setItem('dutchpay',JSON.stringify({people,rounds,paidMap,accounts,pId,rId,iId,acId,mName,mYear,mMonth,mDay}));
+  const mName=document.getElementById('meeting-name').value; const mYear=document.getElementById('sel-year').value; const mMonth=document.getElementById('sel-month').value; const mDay=document.getElementById('sel-day').value;
+  localStorage.setItem('dutchpay',JSON.stringify({people,rounds,sponsors,paidMap,accounts,pId,rId,iId,sId,acId,mName,mYear,mMonth,mDay}));
 }
-
 function loadData(){
-  const saved=localStorage.getItem('dutchpay');
-  if(!saved) return;
+  const saved=localStorage.getItem('dutchpay'); if(!saved) return;
   const d=JSON.parse(saved);
   people=(d.people||[]).map(p=>({type:'normal',ratio:1,guardianId:null,...p}));
-  rounds=(d.rounds||[]).map(r=>({sponsor:{},sponsorExempt:{},face:{},...r,attendees:r.attendees||{}}));
-  paidMap=d.paidMap||{};
-  accounts=d.accounts||[];
-  pId=d.pId||0; rId=d.rId||0; iId=d.iId||0; acId=d.acId||0;
+  rounds=(d.rounds||[]).map(r=>({face:{},...r,attendees:r.attendees||{}}));
+  sponsors=(d.sponsors||[]).map(s=>({exemptRounds:{},...s}));
+  paidMap=d.paidMap||{}; accounts=d.accounts||[];
+  pId=d.pId||0; rId=d.rId||0; iId=d.iId||0; sId=d.sId||0; acId=d.acId||0;
   if(d.mName) document.getElementById('meeting-name').value=d.mName;
   if(d.mYear) document.getElementById('sel-year').value=d.mYear;
   if(d.mMonth) document.getElementById('sel-month').value=d.mMonth;
   if(d.mDay){ updateDaySelect(); document.getElementById('sel-day').value=d.mDay; }
   renderAll();
 }
-
 function resetAll(){
   if(!confirm('전체 초기화할까요? 모든 데이터가 삭제됩니다.')) return;
-  people=[]; rounds=[]; paidMap={}; accounts=[];
-  pId=0; rId=0; iId=0; acId=0;
+  people=[]; rounds=[]; sponsors=[]; paidMap={}; accounts=[];
+  pId=0; rId=0; iId=0; sId=0; acId=0;
   document.getElementById('meeting-name').value='';
-  const now=new Date();
-  document.getElementById('sel-year').value=now.getFullYear();
-  document.getElementById('sel-month').value=now.getMonth()+1;
-  updateDaySelect();
-  document.getElementById('sel-day').value=now.getDate();
-  localStorage.removeItem('dutchpay');
-  renderAll();
+  const now=new Date(); document.getElementById('sel-year').value=now.getFullYear(); document.getElementById('sel-month').value=now.getMonth()+1; updateDaySelect(); document.getElementById('sel-day').value=now.getDate();
+  localStorage.removeItem('dutchpay'); renderAll();
 }
 
 async function shareResult(){
-  const btn=document.getElementById('share-btn');
-  btn.textContent='이미지 생성 중...';
-  btn.style.opacity='0.7';
-  const resultEl=document.getElementById('result-area');
-  const mName=document.getElementById('meeting-name').value.trim();
-  const wrapper=document.createElement('div');
-  wrapper.style.cssText='position:fixed;left:-9999px;top:0;width:390px;padding:22px;background:#ffffff;font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#1a1a1a;';
-  const hdr=document.createElement('div');
-  hdr.style.cssText='margin-bottom:16px;';
-  hdr.innerHTML=`<div style="font-size:20px;font-weight:700;color:#1a1a1a;">${mName||'더치페이 정산'}</div>
-    <div style="font-size:12px;color:#aaa;margin-top:2px;">${getDateStr()}</div>`;
+  const btn=document.getElementById('share-btn'); btn.textContent='이미지 생성 중...'; btn.style.opacity='0.7';
+  const resultEl=document.getElementById('result-area'); const mName=document.getElementById('meeting-name').value.trim();
+  const wrapper=document.createElement('div'); wrapper.style.cssText='position:fixed;left:-9999px;top:0;width:390px;padding:22px;background:#ffffff;font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#1a1a1a;';
+  const hdr=document.createElement('div'); hdr.style.cssText='margin-bottom:16px;';
+  hdr.innerHTML=`<div style="font-size:20px;font-weight:700;color:#1a1a1a;">${mName||'더치페이 정산'}</div><div style="font-size:12px;color:#aaa;margin-top:2px;">${getDateStr()}</div>`;
   wrapper.appendChild(hdr);
-  const clone=resultEl.cloneNode(true);
-  clone.querySelectorAll('button').forEach(b=>b.remove());
-  wrapper.appendChild(clone);
+  const clone=resultEl.cloneNode(true); clone.querySelectorAll('button').forEach(b=>b.remove()); wrapper.appendChild(clone);
   if(receipts.length>0){
-    const rdiv=document.createElement('div');
-    rdiv.style.cssText='margin-top:20px;padding-top:16px;border-top:1px solid #eee;';
+    const rdiv=document.createElement('div'); rdiv.style.cssText='margin-top:20px;padding-top:16px;border-top:1px solid #eee;';
     rdiv.innerHTML=`<div style="font-size:10px;font-weight:600;color:#aaa;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:10px;">영수증</div>`;
-    const rgrid=document.createElement('div');
-    rgrid.style.cssText=`display:grid;grid-template-columns:repeat(${Math.min(receipts.length,3)},1fr);gap:8px;`;
-    receipts.forEach(r=>{
-      const img=document.createElement('img');
-      img.src=r.src; img.style.cssText='width:100%;border-radius:8px;border:1px solid #eee;display:block;';
-      rgrid.appendChild(img);
-    });
-    rdiv.appendChild(rgrid);
-    wrapper.appendChild(rdiv);
+    const rgrid=document.createElement('div'); rgrid.style.cssText=`display:grid;grid-template-columns:repeat(${Math.min(receipts.length,3)},1fr);gap:8px;`;
+    receipts.forEach(r=>{ const img=document.createElement('img'); img.src=r.src; img.style.cssText='width:100%;border-radius:8px;border:1px solid #eee;display:block;'; rgrid.appendChild(img); });
+    rdiv.appendChild(rgrid); wrapper.appendChild(rdiv);
   }
   document.body.appendChild(wrapper);
-  try{
-    const canvas=await html2canvas(wrapper,{scale:2,backgroundColor:'#ffffff',useCORS:true,allowTaint:true,logging:false});
-    const link=document.createElement('a');
-    link.download='더치페이_정산.png';
-    link.href=canvas.toDataURL('image/png');
-    link.click();
-  }catch(e){ alert('이미지 저장에 실패했어요. 다시 시도해 주세요.'); }
+  try{ const canvas=await html2canvas(wrapper,{scale:2,backgroundColor:'#ffffff',useCORS:true,allowTaint:true,logging:false}); const link=document.createElement('a'); link.download='더치페이_정산.png'; link.href=canvas.toDataURL('image/png'); link.click(); }
+  catch(e){ alert('이미지 저장에 실패했어요. 다시 시도해 주세요.'); }
   document.body.removeChild(wrapper);
-  btn.textContent='📷 카카오톡 공유용 이미지 저장';
-  btn.style.opacity='1';
+  btn.textContent='📷 카카오톡 공유용 이미지 저장'; btn.style.opacity='1';
 }
 
 document.getElementById('name-input').addEventListener('keydown',e=>{ if(e.key==='Enter') addPerson(); });
 document.getElementById('sel-year').addEventListener('change',updateDaySelect);
 document.getElementById('sel-month').addEventListener('change',updateDaySelect);
-
 initDateSelects();
 loadData();
 </script>
